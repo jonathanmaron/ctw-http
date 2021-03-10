@@ -30,7 +30,7 @@ dump($httpStatus->get());
 }
 ```
 
-### Throwing Exception
+### Throwing Exceptions
 
 #### Via `throwException()` method
 
