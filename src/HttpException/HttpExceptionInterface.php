@@ -1,21 +1,30 @@
 <?php
 declare(strict_types=1);
 
-namespace TxTextControl\Http\HttpException;
+namespace Ctw\Http\HttpException;
 
 interface HttpExceptionInterface
 {
     /**
-     * Returns the status code.
+     * Return the status code.
      *
-     * @return int An HTTP response status code
+     * @return int
      */
     public function getStatusCode(): int;
 
     /**
-     * Returns response headers.
+     * Return the response headers.
      *
-     * @return string[] Response headers
+     * @return array
      */
     public function getHeaders(): array;
+
+    /**
+     * Set the response headers.
+     *
+     * @param array $headers
+     *
+     * @return $this
+     */
+    public function setHeaders(array $headers): self;
 }

@@ -1,33 +1,27 @@
 <?php
 declare(strict_types=1);
 
-namespace TxTextControl\Http\HttpException;
+namespace Ctw\Http\HttpException;
 
+use Ctw\Http\HttpStatus;
 use RuntimeException;
 use Throwable;
-use TxTextControl\Http\HttpStatus;
-
 
 abstract class AbstractException extends RuntimeException implements HttpExceptionInterface
 {
-    //protected $message    = '';
-
-    //protected int $statusCode = 0;
-
     private   array $headers;
 
     public function __construct(string $message = null, Throwable $previous = null, array $headers = [], int $code = 0)
     {
-        $this->headers = $headers;
+        $this->setHeaders($headers);
 
         if (empty($message)) {
             $statusCode = $this->getStatusCode();
-            $message = sprintf('%d %s', $statusCode, HttpStatus::getTitle($statusCode));
+            $entity     = (new HttpStatus($statusCode))->get();
+            $message    = sprintf('%d %s', $entity->statusCode, $entity->name);
         }
 
         parent::__construct($message, $code, $previous);
-
-        //parent::__construct()
     }
 
     public function getStatusCode(): int
@@ -40,8 +34,10 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
         return $this->headers;
     }
 
-    public function setHeaders(array $headers): void
+    public function setHeaders(array $headers): self
     {
         $this->headers = $headers;
+
+        return $this;
     }
 }

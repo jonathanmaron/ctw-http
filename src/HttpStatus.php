@@ -1,77 +1,82 @@
 <?php
 declare(strict_types=1);
 
-namespace TxTextControl\Http;
+namespace Ctw\Http;
 
+use Ctw\Http\Entity\HttpStatus as Entity;
+use Ctw\Http\Exception\InvalidArgumentException;
 use Fig\Http\Message\StatusCodeInterface;
-use TxTextControl\Http\HttpException\InvalidArgumentException;
-use TxTextControl\Http\HttpException\OutOfBoundsException;
 
 class HttpStatus implements StatusCodeInterface
 {
-    private static $stack;
+    private const FILENAME = __DIR__ . '/../data/http-status.php';
 
-    public const MINIMUM = 100;
+    private array $db;
 
-    public const MAXIMUM = 599;
+    private int   $statusCode;
 
-    public static function filterStatusCode(int $code): int
+    public function __construct(int $statusCode)
     {
-        $filteredCode = filter_var($code, FILTER_VALIDATE_INT, [
-            'options' => [
-                'min_range' => self::MINIMUM, // get from stack
-                'max_range' => self::MAXIMUM,
-            ],
-        ]);
+        $db = (array) include self::FILENAME;
+        $this->setDb($db);
+        $this->validateStatusCode($statusCode);
+        $this->setStatusCode($statusCode);
+    }
 
-        if (false === $filteredCode) {
-            $format  = 'The submitted code "%s" must be a positive integer between %s and %s.';
-            $message = sprintf($format, $code, self::MINIMUM, self::MAXIMUM);
+    public function get(): Entity
+    {
+        $db         = $this->getDb();
+        $statusCode = $this->getStatusCode();
+
+        $entity             = new Entity();
+        $entity->statusCode = $statusCode;
+        $entity->name       = $db[$entity->statusCode]['name'];
+        $entity->phrase     = $db[$entity->statusCode]['phrase'];
+        $entity->exception  = $db[$entity->statusCode]['exception'];
+        $entity->url        = sprintf('https://httpstatuses.com/%s', $entity->statusCode);
+
+        return $entity;
+    }
+
+    public function throwException()
+    {
+        $entity = $this->get();
+
+        throw new $entity->exception;
+    }
+
+    private function getDb(): array
+    {
+        return $this->db;
+    }
+
+    private function setDb(array $db): self
+    {
+        $this->db = $db;
+
+        return $this;
+    }
+
+    private function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    private function setStatusCode(int $statusCode): self
+    {
+        $this->statusCode = $statusCode;
+
+        return $this;
+    }
+
+    private function validateStatusCode(int $statusCode): self
+    {
+        if (!in_array($statusCode, array_keys($this->getDb()), true)) {
+            $format  = 'The status code %d is not supported';
+            $message = sprintf($format, $statusCode);
             throw new InvalidArgumentException($message);
         }
 
-        return $code;
-    }
-
-    public static function getDetail(int $code): string
-    {
-        $code = static::filterStatusCode($code);
-
-        return self::get($code, 'detail');
-    }
-
-    public static function getTitle(int $code): string
-    {
-        $code = static::filterStatusCode($code);
-
-        return self::get($code, 'title');
-    }
-
-    public static function throwException(int $code): void
-    {
-        $code = static::filterStatusCode($code);
-
-        $exception = self::get($code, 'exception');
-
-        throw new $exception;
-    }
-
-    public static function get(int $code, string $type): string
-    {
-        if (!isset(self::$stack)) {
-            self::$stack = include __DIR__ . '/../data/data.php';
-        }
-
-        if (!isset(self::$stack[$code])) {
-            $format  = 'Unknown HTTP status code: `%s`.';
-            $message = sprintf($format, $code);
-            throw new OutOfBoundsException($message);
-        }
-
-        if (!in_array($type, ['title', 'detail', 'exception'])) {
-            // exception
-        }
-
-        return self::$stack[$code][$type] ?? '';
+        return $this;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use TxTextControl\Http\HttpStatus;
+use Ctw\Http\HttpStatus;
 
 class ImATeapotException extends AbstractClientErrorException
 {

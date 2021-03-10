@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "711998e5b07c6891d0fe3d50ee5fbae4",
+    "content-hash": "adbe840d4f383364e4afbfd94cb17d3f",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -61,35 +61,46 @@
                 "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
             },
             "time": "2020-11-24T22:02:12+00:00"
-        },
+        }
+    ],
+    "packages-dev": [
         {
-            "name": "riimu/kit-phpencoder",
-            "version": "v2.4.1",
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Riimu/Kit-PHPEncoder.git",
-                "reference": "ca6f004e1290aec7ef4bebf6c0807b30fcf981d7"
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Riimu/Kit-PHPEncoder/zipball/ca6f004e1290aec7ef4bebf6c0807b30fcf981d7",
-                "reference": "ca6f004e1290aec7ef4bebf6c0807b30fcf981d7",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/5232de97ee3b75b0360528dae24e73db49566ab1",
+                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.4 || ^6.5 || ^5.7"
+                "php": ">=7.1"
             },
             "suggest": {
-                "ext-gmp": "To convert GMP numbers into PHP code"
+                "ext-mbstring": "For best performance"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.22-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "Riimu\\Kit\\PHPEncoder\\": "src/"
-                }
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -97,158 +108,214 @@
             ],
             "authors": [
                 {
-                    "name": "Riikka Kalliomäki",
-                    "email": "riikka.kalliomaki@gmail.com",
-                    "homepage": "http://riimu.net"
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Highly customizable alternative to var_export for PHP code generation",
-            "homepage": "http://kit.riimu.net",
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
             "keywords": [
-                "code",
-                "encoder",
-                "export",
-                "generator",
-                "variable"
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
             ],
             "support": {
-                "issues": "https://github.com/Riimu/Kit-PHPEncoder/issues",
-                "source": "https://github.com/Riimu/Kit-PHPEncoder/tree/v2.4.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.22.1"
             },
-            "time": "2020-11-29T16:53:17+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-01-22T09:19:47+00:00"
         },
         {
-            "name": "textcontrol/txtextcontrol-http",
-            "version": "1.0.3",
+            "name": "symfony/polyfill-php80",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/TextControl/txtextcontrol-http.git",
-                "reference": "6fcc3a9cb95124964208e2d5a785fc9528149d5f"
+                "url": "https://github.com/symfony/polyfill-php80.git",
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TextControl/txtextcontrol-http/zipball/6fcc3a9cb95124964208e2d5a785fc9528149d5f",
-                "reference": "6fcc3a9cb95124964208e2d5a785fc9528149d5f",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/dc3063ba22c2a1fd2f45ed856374d79114998f91",
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91",
                 "shasum": ""
             },
             "require": {
-                "fig/http-message-util": "^1.1",
-                "php": "^7.0 || ^8.0"
+                "php": ">=7.1"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.22-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "TxTextControl\\Http\\": "src"
-                }
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
             ],
             "support": {
-                "issues": "https://github.com/TextControl/txtextcontrol-http/issues",
-                "source": "https://github.com/TextControl/txtextcontrol-http/tree/release-1.0.3"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.1"
             },
-            "time": "2021-03-09T13:59:47+00:00"
-        },
-        {
-            "name": "theimagingsource/config",
-            "version": "3.1.26",
-            "source": {
-                "type": "git",
-                "url": "ssh://git@gitlab.theimagingsource.com/wwwdev/theimagingsource-config",
-                "reference": "20e40e65f8e6d31b05c4659f0c779bfdff2895b8"
-            },
-            "require-dev": {
-                "squizlabs/php_codesniffer": "^3.3",
-                "symfony/var-dumper": "^4.2"
-            },
-            "type": "library",
-            "license": [
-                "proprietary"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
-            "description": "Common configuration for server and tools used in web development and hosting",
-            "time": "2020-12-15T09:32:00+00:00"
+            "time": "2021-01-07T16:49:33+00:00"
         },
         {
-            "name": "theimagingsource/tisl-polyfill",
-            "version": "3.0.24",
+            "name": "symfony/var-dumper",
+            "version": "v5.2.4",
             "source": {
                 "type": "git",
-                "url": "ssh://git@gitlab.theimagingsource.com/wwwdev/theimagingsource-tisl-polyfill",
-                "reference": "db447025d39c18684029d88704ab76be0c5613ad"
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "6a81fec0628c468cf6d5c87a4d003725e040e223"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6a81fec0628c468cf6d5c87a4d003725e040e223",
+                "reference": "6a81fec0628c468cf6d5c87a4d003725e040e223",
+                "shasum": ""
             },
             "require": {
-                "php": "^7.4",
-                "riimu/kit-phpencoder": "^2.3",
-                "theimagingsource/config": "^3.0"
+                "php": ">=7.2.5",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<5.4.3",
+                "symfony/console": "<4.4"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12",
-                "phpunit/phpunit": "^8.5",
-                "squizlabs/php_codesniffer": "^3.5",
-                "symfony/var-dumper": "^5.1"
+                "ext-iconv": "*",
+                "symfony/console": "^4.4|^5.0",
+                "symfony/process": "^4.4|^5.0",
+                "twig/twig": "^2.13|^3.0.4"
             },
+            "suggest": {
+                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+                "ext-intl": "To show region name in time zone dump",
+                "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
+            },
+            "bin": [
+                "Resources/bin/var-dump-server"
+            ],
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Tisl\\Polyfill\\": "src/"
-                },
                 "files": [
-                    "src/Hostname/DsServer/DsServer.php",
-                    "src/Hostname/CldCdn/CldCdn.php",
-                    "src/Hostname/ReportingCloud/ReportingCloud.php",
-                    "src/Hostname/TextControl/TextControl.php",
-                    "src/Hostname/TheImagingSource/TheImagingSource.php",
-                    "src/Hostname/Hostname.php",
-                    "src/Array.php",
-                    "src/ArrayExport.php",
-                    "src/Error.php",
-                    "src/File.php",
-                    "src/Http.php",
-                    "src/Intl.php",
-                    "src/Math.php",
-                    "src/Misc.php",
-                    "src/Posix.php",
-                    "src/String.php",
-                    "src/Temp.php",
-                    "src/Time.php",
-                    "src/Xml.php"
-                ]
-            },
-            "autoload-dev": {
+                    "Resources/functions/dump.php"
+                ],
                 "psr-4": {
-                    "TislTest\\Polyfill\\": "test/"
-                }
-            },
-            "scripts": {
-                "git-pre-commit": [
-                    "@phpstan",
-                    "@phpcbf",
-                    "@phpcs",
-                    "@test"
-                ],
-                "git-pre-push": [],
-                "phpcs": [
-                    "vendor/bin/phpcs data src test --ignore=/test/asset/* --standard=vendor/theimagingsource/config/phpcs/phpcs.xml"
-                ],
-                "phpcbf": [
-                    "vendor/bin/phpcbf data src test --ignore=/test/asset/*"
-                ],
-                "phpstan": [
-                    "rm -fr build/phpstan && mkdir build/phpstan && vendor/bin/phpstan analyse --error-format=raw --configuration=phpstan.neon | tee build/phpstan/output.txt"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "proprietary"
+                "MIT"
             ],
-            "time": "2021-02-04T11:30:50+00:00"
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/var-dumper/tree/v5.2.4"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-02-18T23:11:19+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],

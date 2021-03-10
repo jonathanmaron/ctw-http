@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace TxTextControl\Http\HttpException;
+namespace Ctw\Http\HttpException;
 
-use TxTextControl\Http\HttpStatus;
+use Ctw\Http\HttpStatus;
 
 class LoopDetectedException extends AbstractServerErrorException
 {
