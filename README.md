@@ -32,7 +32,7 @@ dump($httpStatus->get());
 
 ### Throwing Exception
 
-#### 1
+#### Via `throwException()` method
 
 ```php
 use Ctw\Http\HttpStatus;
@@ -49,7 +49,7 @@ Stack trace:
   thrown in /path/ctw-http/src/HttpStatus.php on line 45
 ```
 
-#### 2
+#### Directly with `HttpException\*` Exceptions
 
 ```php
 use Ctw\Http\HttpException;
@@ -57,9 +57,11 @@ use Ctw\Http\HttpException;
 throw new HttpException\NotFoundException();
 ```
 
-#### 3
+#### Directly with `HttpException\*` Exception and Custom Error Message
 
 ```php
+use Ctw\Http\HttpException;
+
 throw new HttpException\NotFoundException('Custom 404 error message');
 ```
 
