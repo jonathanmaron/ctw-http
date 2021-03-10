@@ -1,0 +1,260 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "711998e5b07c6891d0fe3d50ee5fbae4",
+    "packages": [
+        {
+            "name": "fig/http-message-util",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message-util.git",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "suggest": {
+                "psr/http-message": "The package containing the PSR-7 interfaces"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fig\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-message-util/issues",
+                "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
+            },
+            "time": "2020-11-24T22:02:12+00:00"
+        },
+        {
+            "name": "riimu/kit-phpencoder",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Riimu/Kit-PHPEncoder.git",
+                "reference": "ca6f004e1290aec7ef4bebf6c0807b30fcf981d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Riimu/Kit-PHPEncoder/zipball/ca6f004e1290aec7ef4bebf6c0807b30fcf981d7",
+                "reference": "ca6f004e1290aec7ef4bebf6c0807b30fcf981d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.4 || ^6.5 || ^5.7"
+            },
+            "suggest": {
+                "ext-gmp": "To convert GMP numbers into PHP code"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Riimu\\Kit\\PHPEncoder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riikka Kalliomäki",
+                    "email": "riikka.kalliomaki@gmail.com",
+                    "homepage": "http://riimu.net"
+                }
+            ],
+            "description": "Highly customizable alternative to var_export for PHP code generation",
+            "homepage": "http://kit.riimu.net",
+            "keywords": [
+                "code",
+                "encoder",
+                "export",
+                "generator",
+                "variable"
+            ],
+            "support": {
+                "issues": "https://github.com/Riimu/Kit-PHPEncoder/issues",
+                "source": "https://github.com/Riimu/Kit-PHPEncoder/tree/v2.4.1"
+            },
+            "time": "2020-11-29T16:53:17+00:00"
+        },
+        {
+            "name": "textcontrol/txtextcontrol-http",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TextControl/txtextcontrol-http.git",
+                "reference": "6fcc3a9cb95124964208e2d5a785fc9528149d5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TextControl/txtextcontrol-http/zipball/6fcc3a9cb95124964208e2d5a785fc9528149d5f",
+                "reference": "6fcc3a9cb95124964208e2d5a785fc9528149d5f",
+                "shasum": ""
+            },
+            "require": {
+                "fig/http-message-util": "^1.1",
+                "php": "^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TxTextControl\\Http\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "support": {
+                "issues": "https://github.com/TextControl/txtextcontrol-http/issues",
+                "source": "https://github.com/TextControl/txtextcontrol-http/tree/release-1.0.3"
+            },
+            "time": "2021-03-09T13:59:47+00:00"
+        },
+        {
+            "name": "theimagingsource/config",
+            "version": "3.1.26",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@gitlab.theimagingsource.com/wwwdev/theimagingsource-config",
+                "reference": "20e40e65f8e6d31b05c4659f0c779bfdff2895b8"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.3",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Common configuration for server and tools used in web development and hosting",
+            "time": "2020-12-15T09:32:00+00:00"
+        },
+        {
+            "name": "theimagingsource/tisl-polyfill",
+            "version": "3.0.24",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@gitlab.theimagingsource.com/wwwdev/theimagingsource-tisl-polyfill",
+                "reference": "db447025d39c18684029d88704ab76be0c5613ad"
+            },
+            "require": {
+                "php": "^7.4",
+                "riimu/kit-phpencoder": "^2.3",
+                "theimagingsource/config": "^3.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "symfony/var-dumper": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tisl\\Polyfill\\": "src/"
+                },
+                "files": [
+                    "src/Hostname/DsServer/DsServer.php",
+                    "src/Hostname/CldCdn/CldCdn.php",
+                    "src/Hostname/ReportingCloud/ReportingCloud.php",
+                    "src/Hostname/TextControl/TextControl.php",
+                    "src/Hostname/TheImagingSource/TheImagingSource.php",
+                    "src/Hostname/Hostname.php",
+                    "src/Array.php",
+                    "src/ArrayExport.php",
+                    "src/Error.php",
+                    "src/File.php",
+                    "src/Http.php",
+                    "src/Intl.php",
+                    "src/Math.php",
+                    "src/Misc.php",
+                    "src/Posix.php",
+                    "src/String.php",
+                    "src/Temp.php",
+                    "src/Time.php",
+                    "src/Xml.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "TislTest\\Polyfill\\": "test/"
+                }
+            },
+            "scripts": {
+                "git-pre-commit": [
+                    "@phpstan",
+                    "@phpcbf",
+                    "@phpcs",
+                    "@test"
+                ],
+                "git-pre-push": [],
+                "phpcs": [
+                    "vendor/bin/phpcs data src test --ignore=/test/asset/* --standard=vendor/theimagingsource/config/phpcs/phpcs.xml"
+                ],
+                "phpcbf": [
+                    "vendor/bin/phpcbf data src test --ignore=/test/asset/*"
+                ],
+                "phpstan": [
+                    "rm -fr build/phpstan && mkdir build/phpstan && vendor/bin/phpstan analyse --error-format=raw --configuration=phpstan.neon | tee build/phpstan/output.txt"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2021-02-04T11:30:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "ctw/ctw-http",
+    "type": "library",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Ctw\\Http\\": "src"
+        }
+    }
+}
