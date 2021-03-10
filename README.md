@@ -42,7 +42,8 @@ $httpStatus->throwException();
 ```
 
 ```php
-PHP Fatal error:  Uncaught Ctw\Http\HttpException\NotFoundException: 404 Not Found in /path/ctw-http/src/HttpStatus.php:45
+PHP Fatal error:  Uncaught Ctw\Http\HttpException\NotFoundException: 
+  404 Not Found in /path/ctw-http/src/HttpStatus.php:45
 Stack trace:
 #0 /path/ctw-http/bin/demo-usage.php(21): Ctw\Http\HttpStatus->throwException()
 #1 {main}
