@@ -38,7 +38,7 @@ class HttpStatus implements StatusCodeInterface
         return $entity;
     }
 
-    public function throwException()
+    public function throwException(): void
     {
         $entity = $this->get();
 

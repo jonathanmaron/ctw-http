@@ -9,7 +9,9 @@ use Throwable;
 
 abstract class AbstractException extends RuntimeException implements HttpExceptionInterface
 {
-    private   array $headers;
+    protected int $statusCode;
+
+    protected array $headers;
 
     public function __construct(string $message = null, Throwable $previous = null, array $headers = [], int $code = 0)
     {

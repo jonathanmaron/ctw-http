@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<ruleset name="PHPCSStandard">
+
+    <description>PSR-2</description>
+
+    <file>bin</file>
+    <file>data</file>
+    <file>src</file>
+
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="100"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <rule ref="PSR2"/>
+
+</ruleset>
