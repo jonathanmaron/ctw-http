@@ -24,10 +24,6 @@
         "phpcs": "vendor/bin/phpcs",
         "phpcbf": "vendor/bin/phpcbf",
         "phpstan": "rm -fr build/phpstan && mkdir -p build/phpstan && vendor/bin/phpstan analyse --error-format=raw --configuration=phpstan.neon | tee build/phpstan/output.txt",
-        "git-pre-commit": [
-        ],
-        "git-pre-push": [
-        ],
         "qa": [
             "@phpcbf",
             "@phpcs",
