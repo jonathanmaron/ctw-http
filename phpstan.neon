@@ -10,6 +10,7 @@ parameters:
         - bin
         - data
         - src
+        - test
     fileExtensions:
         - php
     level: max

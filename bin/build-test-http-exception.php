@@ -7,18 +7,17 @@ $pathOutput       = realpath(__DIR__ . '/../test/HttpException');
 $dbFilename       = realpath(__DIR__ . '/../data/http-status.php');
 $templateFilename = realpath(__DIR__ . '/HttpExceptionTestTemplate.txt');
 
-$template = file_get_contents($templateFilename);
+$template = (string) file_get_contents($templateFilename);
 
 $db = include $dbFilename;
 
 foreach ($db as $STATUSCODE => $array) {
-
     if (null === $array['exception']) {
         continue;
     }
 
     $parts   = explode('\\', $array['exception']);
-    $NAME    = array_pop($parts);
+    $NAME    = (string) array_pop($parts);
     $MESSAGE = sprintf('%d %s', $STATUSCODE, str_replace("'", "\'", $array['name']));
 
     $CUSTOMMESSAGE = 'Custom error message with a detailed description of the problem.';
