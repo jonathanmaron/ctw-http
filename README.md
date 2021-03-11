@@ -1,5 +1,10 @@
 # CTW HTTP
 
+[![Build Status](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/ctw/ctw-http/v/stable)](https://packagist.org/packages/ctw/ctw-http)
+[![composer.lock available](https://poser.pugx.org/ctw/ctw-http/composerlock)](https://packagist.org/packages/ctw/ctw-http)
+
 This repository holds utility classes and constants to facilitate common operations of [PSR-7](https://www.php-fig.org/psr/psr-7/) and a group of exceptions which represent HTTP status codes.
 
 ## Installation
