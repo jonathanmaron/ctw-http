@@ -83,7 +83,7 @@ interface HttpExceptionInterface
     /**
      * Set the status code.
      *
-     * @return int
+     * @return $this
      */
     public function setStatusCode(int $statusCode): self;
 

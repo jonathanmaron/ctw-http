@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 include __DIR__ . '/../vendor/autoload.php';
 
-$pathOutput       = realpath(__DIR__ . '/../test/HttpException');
-$dbFilename       = realpath(__DIR__ . '/../data/http-status.php');
-$templateFilename = realpath(__DIR__ . '/HttpExceptionTestTemplate.txt');
+$pathOutput       = (string) realpath(__DIR__ . '/../test/HttpException');
+$dbFilename       = (string) realpath(__DIR__ . '/../data/http-status.php');
+$templateFilename = (string) realpath(__DIR__ . '/HttpExceptionTestTemplate.txt');
 
 $template = (string) file_get_contents($templateFilename);
 
