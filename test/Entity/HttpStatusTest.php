@@ -3,10 +3,41 @@ declare(strict_types=1);
 
 namespace CtwTest\Http\Entity;
 
+use Ctw\Http\Entity\HttpStatus as Entity;
+use Ctw\Http\HttpStatus;
+use ReflectionClass;
+use ReflectionProperty;
+
 class HttpStatusTest extends AbstractCase
 {
-    public function testComingSoon(): void
+    public function testEntity(): void
     {
-        $this->assertFalse(true);
+        $entity = new Entity();
+
+        $entity->statusCode = HttpStatus::STATUS_NOT_FOUND;
+        $this->assertEquals(HttpStatus::STATUS_NOT_FOUND, $entity->statusCode);
+    }
+
+    public function testPublicProperties(): void
+    {
+        $reflect    = new ReflectionClass(new Entity());
+        $properties = $reflect->getProperties(ReflectionProperty::IS_PUBLIC);
+
+        $actual = [];
+        foreach ($properties as $property) {
+            $actual[] = $property->getName();
+        }
+        sort($actual);
+
+        $expected = [
+            'statusCode',
+            'name',
+            'phrase',
+            'exception',
+            'url',
+        ];
+        sort($expected);
+
+        $this->assertEquals($expected, $actual);
     }
 }

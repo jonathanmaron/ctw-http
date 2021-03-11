@@ -4,8 +4,9 @@ namespace Ctw\Http;
 
 use Ctw\Http\HttpException;
 
-// Source:
+// Reference:
 // https://httpstatuses.com/
+// https://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 
 // phpcs:disable
 
