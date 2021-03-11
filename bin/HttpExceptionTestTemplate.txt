@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
-use Ctw\Http\HttpStatus;
 
 // phpcs:disable
 
@@ -12,20 +11,22 @@ class %%NAME%%Test extends AbstractCase
 {
     public function test%%NAME%%(): void
     {
-        $message = '%%MESSAGE%%';
+        $statusCode = %%STATUSCODE%%;
+        $message    = '%%MESSAGE%%';
 
         try {
             throw new HttpException\%%NAME%%();
         } catch (HttpException\HttpExceptionInterface $e) {
-            $this->assertSame(%%STATUSCODE%%, $e->getStatusCode());
+            $this->assertSame($statusCode, $e->getStatusCode());
             $this->assertSame($message, $e->getMessage());
         }
     }
 
     public function test%%NAME%%WithConstructorValues(): void
     {
-        $message = '%%CUSTOMMESSAGE%%';
-        $headers = [
+        $statusCode = %%STATUSCODE%%;
+        $message    = '%%CUSTOMMESSAGE%%';
+        $headers    = [
             'Content-Type'  => 'text/html; charset=UTF-8',
             'Authorization' => 'Basic YWxhZGRpbjpvcGVuc2VzYW1l',
         ];
@@ -33,7 +34,7 @@ class %%NAME%%Test extends AbstractCase
         try {
             throw new HttpException\%%NAME%%($message, null, $headers);
         } catch (HttpException\HttpExceptionInterface $e) {
-            $this->assertSame(%%STATUSCODE%%, $e->getStatusCode());
+            $this->assertSame($statusCode, $e->getStatusCode());
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
