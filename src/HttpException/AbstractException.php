@@ -9,7 +9,7 @@ use Throwable;
 
 abstract class AbstractException extends RuntimeException implements HttpExceptionInterface
 {
-    protected int $statusCode;
+    protected int   $statusCode;
 
     protected array $headers;
 
@@ -29,6 +29,13 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
     public function getStatusCode(): int
     {
         return $this->statusCode;
+    }
+
+    public function setStatusCode(int $statusCode): self
+    {
+        $this->statusCode = $statusCode;
+
+        return $this;
     }
 
     public function getHeaders(): array
