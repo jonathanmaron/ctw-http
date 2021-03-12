@@ -22,7 +22,7 @@ class GoneExceptionTest extends AbstractCase
         }
     }
 
-    public function testGoneExceptionWithConstructorValues(): void
+    public function testGoneExceptionConstruct(): void
     {
         $statusCode = 410;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class GoneExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testGoneExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\GoneException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

@@ -22,7 +22,7 @@ class FailedDependencyExceptionTest extends AbstractCase
         }
     }
 
-    public function testFailedDependencyExceptionWithConstructorValues(): void
+    public function testFailedDependencyExceptionConstruct(): void
     {
         $statusCode = 424;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class FailedDependencyExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testFailedDependencyExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\FailedDependencyException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

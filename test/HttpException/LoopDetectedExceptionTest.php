@@ -22,7 +22,7 @@ class LoopDetectedExceptionTest extends AbstractCase
         }
     }
 
-    public function testLoopDetectedExceptionWithConstructorValues(): void
+    public function testLoopDetectedExceptionConstruct(): void
     {
         $statusCode = 508;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class LoopDetectedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testLoopDetectedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\LoopDetectedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

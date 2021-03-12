@@ -22,7 +22,7 @@ class BadRequestExceptionTest extends AbstractCase
         }
     }
 
-    public function testBadRequestExceptionWithConstructorValues(): void
+    public function testBadRequestExceptionConstruct(): void
     {
         $statusCode = 400;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class BadRequestExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testBadRequestExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\BadRequestException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

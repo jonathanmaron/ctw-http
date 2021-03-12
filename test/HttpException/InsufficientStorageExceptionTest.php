@@ -22,7 +22,7 @@ class InsufficientStorageExceptionTest extends AbstractCase
         }
     }
 
-    public function testInsufficientStorageExceptionWithConstructorValues(): void
+    public function testInsufficientStorageExceptionConstruct(): void
     {
         $statusCode = 507;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class InsufficientStorageExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testInsufficientStorageExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\InsufficientStorageException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

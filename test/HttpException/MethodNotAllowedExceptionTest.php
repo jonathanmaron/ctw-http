@@ -22,7 +22,7 @@ class MethodNotAllowedExceptionTest extends AbstractCase
         }
     }
 
-    public function testMethodNotAllowedExceptionWithConstructorValues(): void
+    public function testMethodNotAllowedExceptionConstruct(): void
     {
         $statusCode = 405;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class MethodNotAllowedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testMethodNotAllowedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\MethodNotAllowedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

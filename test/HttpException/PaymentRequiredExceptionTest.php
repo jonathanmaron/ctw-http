@@ -22,7 +22,7 @@ class PaymentRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testPaymentRequiredExceptionWithConstructorValues(): void
+    public function testPaymentRequiredExceptionConstruct(): void
     {
         $statusCode = 402;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class PaymentRequiredExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testPaymentRequiredExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\PaymentRequiredException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

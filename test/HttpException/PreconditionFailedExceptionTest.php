@@ -22,7 +22,7 @@ class PreconditionFailedExceptionTest extends AbstractCase
         }
     }
 
-    public function testPreconditionFailedExceptionWithConstructorValues(): void
+    public function testPreconditionFailedExceptionConstruct(): void
     {
         $statusCode = 412;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class PreconditionFailedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testPreconditionFailedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\PreconditionFailedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

@@ -22,7 +22,7 @@ class ForbiddenExceptionTest extends AbstractCase
         }
     }
 
-    public function testForbiddenExceptionWithConstructorValues(): void
+    public function testForbiddenExceptionConstruct(): void
     {
         $statusCode = 403;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class ForbiddenExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testForbiddenExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\ForbiddenException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

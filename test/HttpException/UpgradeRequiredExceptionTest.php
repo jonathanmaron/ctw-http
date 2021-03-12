@@ -22,7 +22,7 @@ class UpgradeRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testUpgradeRequiredExceptionWithConstructorValues(): void
+    public function testUpgradeRequiredExceptionConstruct(): void
     {
         $statusCode = 426;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class UpgradeRequiredExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testUpgradeRequiredExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\UpgradeRequiredException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

@@ -22,7 +22,7 @@ class LockedExceptionTest extends AbstractCase
         }
     }
 
-    public function testLockedExceptionWithConstructorValues(): void
+    public function testLockedExceptionConstruct(): void
     {
         $statusCode = 423;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class LockedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testLockedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\LockedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

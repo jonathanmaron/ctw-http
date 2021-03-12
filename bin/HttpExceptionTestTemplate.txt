@@ -22,7 +22,7 @@ class %%NAME%%Test extends AbstractCase
         }
     }
 
-    public function test%%NAME%%WithConstructorValues(): void
+    public function test%%NAME%%Construct(): void
     {
         $statusCode = %%STATUSCODE%%;
         $message    = '%%CUSTOMMESSAGE%%';
@@ -38,6 +38,22 @@ class %%NAME%%Test extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function test%%NAME%%SetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\%%NAME%%();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

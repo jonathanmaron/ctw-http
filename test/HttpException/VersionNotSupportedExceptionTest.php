@@ -22,7 +22,7 @@ class VersionNotSupportedExceptionTest extends AbstractCase
         }
     }
 
-    public function testVersionNotSupportedExceptionWithConstructorValues(): void
+    public function testVersionNotSupportedExceptionConstruct(): void
     {
         $statusCode = 505;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class VersionNotSupportedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testVersionNotSupportedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\VersionNotSupportedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

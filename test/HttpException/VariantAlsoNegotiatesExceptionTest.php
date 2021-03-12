@@ -22,7 +22,7 @@ class VariantAlsoNegotiatesExceptionTest extends AbstractCase
         }
     }
 
-    public function testVariantAlsoNegotiatesExceptionWithConstructorValues(): void
+    public function testVariantAlsoNegotiatesExceptionConstruct(): void
     {
         $statusCode = 506;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class VariantAlsoNegotiatesExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testVariantAlsoNegotiatesExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\VariantAlsoNegotiatesException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

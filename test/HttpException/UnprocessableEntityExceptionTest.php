@@ -22,7 +22,7 @@ class UnprocessableEntityExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnprocessableEntityExceptionWithConstructorValues(): void
+    public function testUnprocessableEntityExceptionConstruct(): void
     {
         $statusCode = 422;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class UnprocessableEntityExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testUnprocessableEntityExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\UnprocessableEntityException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

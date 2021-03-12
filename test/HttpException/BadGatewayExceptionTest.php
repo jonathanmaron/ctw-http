@@ -22,7 +22,7 @@ class BadGatewayExceptionTest extends AbstractCase
         }
     }
 
-    public function testBadGatewayExceptionWithConstructorValues(): void
+    public function testBadGatewayExceptionConstruct(): void
     {
         $statusCode = 502;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class BadGatewayExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testBadGatewayExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\BadGatewayException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

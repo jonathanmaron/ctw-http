@@ -22,7 +22,7 @@ class UnavailableForLegalReasonsExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnavailableForLegalReasonsExceptionWithConstructorValues(): void
+    public function testUnavailableForLegalReasonsExceptionConstruct(): void
     {
         $statusCode = 451;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class UnavailableForLegalReasonsExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testUnavailableForLegalReasonsExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\UnavailableForLegalReasonsException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

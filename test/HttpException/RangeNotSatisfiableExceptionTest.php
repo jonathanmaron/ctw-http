@@ -22,7 +22,7 @@ class RangeNotSatisfiableExceptionTest extends AbstractCase
         }
     }
 
-    public function testRangeNotSatisfiableExceptionWithConstructorValues(): void
+    public function testRangeNotSatisfiableExceptionConstruct(): void
     {
         $statusCode = 416;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class RangeNotSatisfiableExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testRangeNotSatisfiableExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\RangeNotSatisfiableException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

@@ -22,7 +22,7 @@ class TooEarlyExceptionTest extends AbstractCase
         }
     }
 
-    public function testTooEarlyExceptionWithConstructorValues(): void
+    public function testTooEarlyExceptionConstruct(): void
     {
         $statusCode = 425;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class TooEarlyExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testTooEarlyExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\TooEarlyException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

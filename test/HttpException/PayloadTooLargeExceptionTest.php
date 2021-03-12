@@ -22,7 +22,7 @@ class PayloadTooLargeExceptionTest extends AbstractCase
         }
     }
 
-    public function testPayloadTooLargeExceptionWithConstructorValues(): void
+    public function testPayloadTooLargeExceptionConstruct(): void
     {
         $statusCode = 413;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class PayloadTooLargeExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testPayloadTooLargeExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\PayloadTooLargeException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

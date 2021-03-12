@@ -22,7 +22,7 @@ class RequestTimeoutExceptionTest extends AbstractCase
         }
     }
 
-    public function testRequestTimeoutExceptionWithConstructorValues(): void
+    public function testRequestTimeoutExceptionConstruct(): void
     {
         $statusCode = 408;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class RequestTimeoutExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testRequestTimeoutExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\RequestTimeoutException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

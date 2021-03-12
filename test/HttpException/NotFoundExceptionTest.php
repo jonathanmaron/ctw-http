@@ -22,7 +22,7 @@ class NotFoundExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotFoundExceptionWithConstructorValues(): void
+    public function testNotFoundExceptionConstruct(): void
     {
         $statusCode = 404;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class NotFoundExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testNotFoundExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\NotFoundException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

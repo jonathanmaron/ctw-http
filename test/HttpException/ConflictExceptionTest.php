@@ -22,7 +22,7 @@ class ConflictExceptionTest extends AbstractCase
         }
     }
 
-    public function testConflictExceptionWithConstructorValues(): void
+    public function testConflictExceptionConstruct(): void
     {
         $statusCode = 409;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class ConflictExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testConflictExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\ConflictException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

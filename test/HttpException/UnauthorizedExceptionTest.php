@@ -22,7 +22,7 @@ class UnauthorizedExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnauthorizedExceptionWithConstructorValues(): void
+    public function testUnauthorizedExceptionConstruct(): void
     {
         $statusCode = 401;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class UnauthorizedExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testUnauthorizedExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\UnauthorizedException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

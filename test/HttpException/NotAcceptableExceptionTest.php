@@ -22,7 +22,7 @@ class NotAcceptableExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotAcceptableExceptionWithConstructorValues(): void
+    public function testNotAcceptableExceptionConstruct(): void
     {
         $statusCode = 406;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class NotAcceptableExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testNotAcceptableExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\NotAcceptableException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

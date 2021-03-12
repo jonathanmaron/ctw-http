@@ -22,7 +22,7 @@ class LengthRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testLengthRequiredExceptionWithConstructorValues(): void
+    public function testLengthRequiredExceptionConstruct(): void
     {
         $statusCode = 411;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class LengthRequiredExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testLengthRequiredExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\LengthRequiredException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 

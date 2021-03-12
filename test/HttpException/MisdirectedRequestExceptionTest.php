@@ -22,7 +22,7 @@ class MisdirectedRequestExceptionTest extends AbstractCase
         }
     }
 
-    public function testMisdirectedRequestExceptionWithConstructorValues(): void
+    public function testMisdirectedRequestExceptionConstruct(): void
     {
         $statusCode = 421;
         $message    = 'Custom error message with a detailed description of the problem.';
@@ -38,6 +38,22 @@ class MisdirectedRequestExceptionTest extends AbstractCase
             $this->assertSame($message, $e->getMessage());
             $this->assertSame($headers, $e->getHeaders());
         }
+    }
+
+    public function testMisdirectedRequestExceptionSetGet(): void
+    {
+        $statusCode = rand(400, 450);
+        $headers    = [
+            'Age'    => 30,
+            'Pragma' => 'no-cache',
+        ];
+
+        $exception = new HttpException\MisdirectedRequestException();
+        $exception->setHeaders($headers);
+        $exception->setStatusCode($statusCode);
+
+        $this->assertSame($headers, $exception->getHeaders());
+        $this->assertSame($statusCode, $exception->getStatusCode());
     }
 }
 
