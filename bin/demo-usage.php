@@ -13,18 +13,13 @@ dump($httpStatus->get());
 */
 
 /*
-$httpStatus = new HttpStatus(HttpStatus::STATUS_NOT_FOUND);
-$httpStatus->throwException();
-*/
-
-/*
 dump(HttpMethod::METHOD_GET);
 dump(HttpMethod::METHOD_POST);
 */
 
 /*
 throw new HttpException\NotFoundException();
-throw new HttpException\BadRequestException();
+throw new HttpException\NotFoundException('Custom 404 error message');
 */
 
 /*

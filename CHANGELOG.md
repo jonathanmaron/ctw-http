@@ -1,17 +1,18 @@
 # CHANGELOG
 
-## 1.0.9 - 2021-03-12
+## 1.0.11 - 2021-03-12
 
-* QA improvements.
+* Improved documentation.
+* Improved QA.
 * Improved unit tests.
 
 ## 1.0.7 - 2021-03-11
 
-* QA improvements.
+* Improved QA.
 
 ## 1.0.6 - 2021-03-11
 
-* QA improvements.
+* Improved QA.
 
 ## 1.0.5 - 2021-03-11
 

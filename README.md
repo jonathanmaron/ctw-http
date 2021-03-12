@@ -37,25 +37,7 @@ dump($httpStatus->get());
 
 ### Throwing Exceptions
 
-#### Via `throwException()` method
-
-```php
-use Ctw\Http\HttpStatus;
-
-$httpStatus = new HttpStatus(HttpStatus::STATUS_NOT_FOUND);
-$httpStatus->throwException();
-```
-
-```php
-PHP Fatal error:  Uncaught Ctw\Http\HttpException\NotFoundException: 
-  404 Not Found in /path/ctw-http/src/HttpStatus.php:45
-Stack trace:
-#0 /path/ctw-http/bin/demo-usage.php(21): Ctw\Http\HttpStatus->throwException()
-#1 {main}
-  thrown in /path/ctw-http/src/HttpStatus.php on line 45
-```
-
-#### Directly with `HttpException\*` Exceptions
+#### `HttpException\*` Exceptions
 
 ```php
 use Ctw\Http\HttpException;
@@ -63,12 +45,29 @@ use Ctw\Http\HttpException;
 throw new HttpException\NotFoundException();
 ```
 
-#### Directly with `HttpException\*` Exception and Custom Error Message
+```php
+PHP Fatal error: Uncaught Ctw\Http\HttpException\NotFoundException: 
+  404 Not Found in /path/demo-usage.php:20
+Stack trace:
+#0 {main}
+  thrown in /path/demo-usage.php on line 20
+```
+
+#### `HttpException\*` Exception with Custom Error Message
 
 ```php
 use Ctw\Http\HttpException;
 
 throw new HttpException\NotFoundException('Custom 404 error message');
+```
+
+```php
+PHP Fatal error: Uncaught Ctw\Http\HttpException\NotFoundException: 
+  Custom 404 error message in /path/demo-usage.php:21
+Stack trace:
+#0 {main}
+  thrown in /path/demo-usage.php on line 21
+
 ```
 
 ### Catching Exceptions
@@ -104,6 +103,8 @@ HttpExceptionInterface
 
 ### List of HTTP Method Constants
 
+The following are provided by [PSR Http Message Util](https://github.com/php-fig/http-message-util):
+
 ```php
 use Ctw\Http\HttpMethod;
 
@@ -120,6 +121,8 @@ HttpMethod::METHOD_TRACE;
 ```
 
 ### List of HTTP Status Constants
+
+The following are provided by [PSR Http Message Util](https://github.com/php-fig/http-message-util):
 
 ```php
 use Ctw\Http\HttpStatus;
