@@ -39,22 +39,6 @@ class InsufficientStorageExceptionTest extends AbstractCase
             $this->assertSame($headers, $e->getHeaders());
         }
     }
-
-    public function testInsufficientStorageExceptionSetGet(): void
-    {
-        $statusCode = rand(400, 450);
-        $headers    = [
-            'Age'    => 30,
-            'Pragma' => 'no-cache',
-        ];
-
-        $exception = new HttpException\InsufficientStorageException();
-        $exception->setHeaders($headers);
-        $exception->setStatusCode($statusCode);
-
-        $this->assertSame($headers, $exception->getHeaders());
-        $this->assertSame($statusCode, $exception->getStatusCode());
-    }
 }
 
 // phpcs:disable

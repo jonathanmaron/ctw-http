@@ -39,22 +39,6 @@ class PaymentRequiredExceptionTest extends AbstractCase
             $this->assertSame($headers, $e->getHeaders());
         }
     }
-
-    public function testPaymentRequiredExceptionSetGet(): void
-    {
-        $statusCode = rand(400, 450);
-        $headers    = [
-            'Age'    => 30,
-            'Pragma' => 'no-cache',
-        ];
-
-        $exception = new HttpException\PaymentRequiredException();
-        $exception->setHeaders($headers);
-        $exception->setStatusCode($statusCode);
-
-        $this->assertSame($headers, $exception->getHeaders());
-        $this->assertSame($statusCode, $exception->getStatusCode());
-    }
 }
 
 // phpcs:disable

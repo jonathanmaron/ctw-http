@@ -89,13 +89,6 @@ class HttpStatusTest extends AbstractCase
         $this->assertSame('https://httpstatuses.com/404', $entity->url);
     }
 
-    public function testThrowException(): void
-    {
-        $this->expectException(HttpException\NotFoundException::class);
-        $httpStatus = new HttpStatus(HttpStatus::STATUS_NOT_FOUND);
-        $httpStatus->throwException();
-    }
-
     public function testInvalidStatusCode(): void
     {
         $this->expectException(InvalidArgumentException::class);

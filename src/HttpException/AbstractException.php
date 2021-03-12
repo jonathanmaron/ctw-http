@@ -15,7 +15,7 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
 
     public function __construct(string $message = null, Throwable $previous = null, array $headers = [], int $code = 0)
     {
-        $this->setHeaders($headers);
+        $this->headers = $headers;
 
         if (empty($message)) {
             $statusCode = $this->getStatusCode();
@@ -31,22 +31,8 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
         return $this->statusCode;
     }
 
-    public function setStatusCode(int $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
     public function getHeaders(): array
     {
         return $this->headers;
-    }
-
-    public function setHeaders(array $headers): self
-    {
-        $this->headers = $headers;
-
-        return $this;
     }
 }

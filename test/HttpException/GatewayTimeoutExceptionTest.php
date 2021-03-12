@@ -39,22 +39,6 @@ class GatewayTimeoutExceptionTest extends AbstractCase
             $this->assertSame($headers, $e->getHeaders());
         }
     }
-
-    public function testGatewayTimeoutExceptionSetGet(): void
-    {
-        $statusCode = rand(400, 450);
-        $headers    = [
-            'Age'    => 30,
-            'Pragma' => 'no-cache',
-        ];
-
-        $exception = new HttpException\GatewayTimeoutException();
-        $exception->setHeaders($headers);
-        $exception->setStatusCode($statusCode);
-
-        $this->assertSame($headers, $exception->getHeaders());
-        $this->assertSame($statusCode, $exception->getStatusCode());
-    }
 }
 
 // phpcs:disable

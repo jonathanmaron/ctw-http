@@ -81,25 +81,9 @@ interface HttpExceptionInterface
     public function getStatusCode(): int;
 
     /**
-     * Set the status code.
-     *
-     * @return $this
-     */
-    public function setStatusCode(int $statusCode): self;
-
-    /**
      * Return the response headers.
      *
      * @return array
      */
     public function getHeaders(): array;
-
-    /**
-     * Set the response headers.
-     *
-     * @param array $headers
-     *
-     * @return $this
-     */
-    public function setHeaders(array $headers): self;
 }
