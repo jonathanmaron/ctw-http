@@ -5,6 +5,6 @@ namespace CtwTest\Http;
 
 use PHPUnit\Framework\TestCase;
 
-class AbstractCase extends TestCase
+abstract class AbstractCase extends TestCase
 {
 }

@@ -5,6 +5,6 @@ namespace CtwTest\Http\Entity;
 
 use CtwTest\Http\AbstractCase as ParentAbstractCase;
 
-class AbstractCase extends ParentAbstractCase
+abstract class AbstractCase extends ParentAbstractCase
 {
 }
