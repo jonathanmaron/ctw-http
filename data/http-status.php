@@ -17,25 +17,25 @@ return [
     HttpStatus::STATUS_CONTINUE => [
         'name'      => 'Continue',
         'phrase'    => 'The initial part of a request has been received and has not yet been rejected by the server. The server intends to send a final response after the request has been fully received and acted upon.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_SWITCHING_PROTOCOLS => [
         'name'      => 'Switching Protocols',
         'phrase'    => 'The server understands and is willing to comply with the client\'s request, via the Upgrade header field for a change in the application protocol being used on this connection.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_PROCESSING => [
         'name'      => 'Processing',
         'phrase'    => 'An interim response used to inform the client that the server has accepted the complete request, but has not yet completed it.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_EARLY_HINTS => [
         'name'      => 'Early Hints',
         'phrase'    => '',
-        'exception' => null,
+        'exception' => '',
     ],
 
     // </editor-fold>
@@ -45,61 +45,61 @@ return [
     HttpStatus::STATUS_OK => [
         'name'      => 'OK',
         'phrase'    => 'Standard response for successful HTTP requests.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_CREATED => [
         'name'      => 'Created',
         'phrase'    => 'The request has been fulfilled, resulting in the creation of a new resource.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_ACCEPTED => [
         'name'      => 'Accepted',
         'phrase'    => 'The request has been accepted for processing, but the processing has not been completed.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_NON_AUTHORITATIVE_INFORMATION => [
         'name'      => 'Non-Authoritative Information',
         'phrase'    => 'The server is a transforming proxy (e.g. a Web accelerator) that received a 200 OK from its origin, but is returning a modified version of the origin\'s response.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_NO_CONTENT => [
         'name'      => 'No Content',
         'phrase'    => 'The server successfully processed the request and is not returning any content.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_RESET_CONTENT => [
         'name'      => 'Reset Content',
         'phrase'    => 'The server successfully processed the request, but is not returning any content.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_PARTIAL_CONTENT => [
         'name'      => 'Partial Content',
         'phrase'    => 'The server is delivering only part of the resource (byte serving) due to a range header sent by the client.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_MULTI_STATUS => [
         'name'      => 'Multi-Status',
         'phrase'    => 'The message body that follows is an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_ALREADY_REPORTED => [
         'name'      => 'Already Reported',
         'phrase'    => 'The members of a DAV binding have already been enumerated in a previous reply to this request, and are not being included again.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_IM_USED => [
         'name'      => 'IM Used',
         'phrase'    => 'The server has fulfilled a request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     // </editor-fold>
@@ -109,55 +109,55 @@ return [
     HttpStatus::STATUS_MULTIPLE_CHOICES => [
         'name'      => 'Multiple Choices',
         'phrase'    => 'Indicates multiple options for the resource from which the client may choose.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_MOVED_PERMANENTLY => [
         'name'      => 'Moved Permanently',
         'phrase'    => 'This and all future requests should be directed to the given URI.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_FOUND => [
         'name'      => 'Found',
         'phrase'    => 'This is an example of industry practice contradicting the standard.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_SEE_OTHER => [
         'name'      => 'See Other',
         'phrase'    => 'The response to the request can be found under another URI using a GET method.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_NOT_MODIFIED => [
         'name'      => 'Not Modified',
         'phrase'    => 'Indicates that the resource has not been modified since the version specified by the request headers If-Modified-Since or If-None-Match.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_USE_PROXY => [
         'name'      => 'Use Proxy',
         'phrase'    => 'The requested resource is available only through a proxy, the address for which is provided in the response.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_RESERVED => [
         'name'      => '(Unused)',
         'phrase'    => 'No longer used.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_TEMPORARY_REDIRECT => [
         'name'      => 'Temporary Redirect',
         'phrase'    => 'In this case, the request should be repeated with another URI; however, future requests should still use the original URI.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     HttpStatus::STATUS_PERMANENT_REDIRECT => [
         'name'      => 'Permanent Redirect',
         'phrase'    => 'The request and all future requests should be repeated using another URI.',
-        'exception' => null,
+        'exception' => '',
     ],
 
     // </editor-fold>
