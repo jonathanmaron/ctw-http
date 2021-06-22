@@ -11,7 +11,7 @@ class HttpStatus
 
     public string $phrase;
 
-    public string $exception;
+    public ?string $exception; // null in case of 1**, 2** and 3** HTTP statuses
 
     public string $url;
 }
