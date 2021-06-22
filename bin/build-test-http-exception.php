@@ -12,12 +12,13 @@ $template = (string) file_get_contents($templateFilename);
 $db = include $dbFilename;
 
 foreach ($db as $STATUSCODE => $array) {
-    if (null === $array['exception']) {
+
+    if (0 === strlen($array['exception'])) {
         continue;
     }
 
     $parts   = explode('\\', $array['exception']);
-    $NAME    = (string) array_pop($parts);
+    $NAME    = array_pop($parts);
     $MESSAGE = sprintf('%d %s', $STATUSCODE, str_replace("'", "\'", $array['name']));
 
     $CUSTOMMESSAGE = 'Custom error message with a detailed description of the problem.';

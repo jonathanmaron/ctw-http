@@ -15,7 +15,7 @@ class HttpStatusTest extends AbstractCase
         $entity = new Entity();
 
         $entity->statusCode = HttpStatus::STATUS_NOT_FOUND;
-        $this->assertEquals(HttpStatus::STATUS_NOT_FOUND, $entity->statusCode);
+        self::assertEquals(HttpStatus::STATUS_NOT_FOUND, $entity->statusCode);
     }
 
     public function testPublicProperties(): void
@@ -38,6 +38,6 @@ class HttpStatusTest extends AbstractCase
         ];
         sort($expected);
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 }
