@@ -10,12 +10,12 @@ interface HttpExceptionInterface
     /**
      * HttpExceptionInterface constructor.
      *
-     * @param string|null    $message
+     * @param string         $message
      * @param Throwable|null $previous
      * @param array          $headers
      * @param int            $code
      */
-    public function __construct(string $message = null, Throwable $previous = null, array $headers = [], int $code = 0);
+    public function __construct(string $message = '', Throwable $previous = null, array $headers = [], int $code = 0);
 
     /**
      * Return the exception message.
