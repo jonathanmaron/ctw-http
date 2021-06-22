@@ -17,7 +17,7 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
     {
         $this->headers = $headers;
 
-        if (empty($message)) {
+        if (0 === strlen($message)) {
             $statusCode = $this->getStatusCode();
             $entity     = (new HttpStatus($statusCode))->get();
             $message    = sprintf('%d %s', $entity->statusCode, $entity->name);
