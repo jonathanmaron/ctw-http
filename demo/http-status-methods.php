@@ -45,13 +45,3 @@ try {
 // ^ "Optional custom 404 Not Found"
 
 // </editor-fold>
-
-// <editor-fold desc="">
-
-// </editor-fold>
-
-// <editor-fold desc="">
-
-// </editor-fold>
-
-
