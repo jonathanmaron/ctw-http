@@ -17,8 +17,8 @@ class GoneExceptionTest extends AbstractCase
         try {
             throw new HttpException\GoneException();
         } catch (HttpException\HttpExceptionInterface $e) {
-            $this->assertSame($statusCode, $e->getStatusCode());
-            $this->assertSame($message, $e->getMessage());
+            self::assertSame($statusCode, $e->getStatusCode());
+            self::assertSame($message, $e->getMessage());
         }
     }
 

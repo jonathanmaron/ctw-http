@@ -17,8 +17,8 @@ class LoopDetectedExceptionTest extends AbstractCase
         try {
             throw new HttpException\LoopDetectedException();
         } catch (HttpException\HttpExceptionInterface $e) {
-            $this->assertSame($statusCode, $e->getStatusCode());
-            $this->assertSame($message, $e->getMessage());
+            self::assertSame($statusCode, $e->getStatusCode());
+            self::assertSame($message, $e->getMessage());
         }
     }
 

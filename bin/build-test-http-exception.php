@@ -3,24 +3,31 @@ declare(strict_types=1);
 
 include __DIR__ . '/../vendor/autoload.php';
 
+use Ctw\Http\HttpStatus;
+
 $pathOutput       = (string) realpath(__DIR__ . '/../test/HttpException');
-$dbFilename       = (string) realpath(__DIR__ . '/../data/http-status.php');
 $templateFilename = (string) realpath(__DIR__ . '/HttpExceptionTestTemplate.txt');
+$template         = (string) file_get_contents($templateFilename);
 
-$template = (string) file_get_contents($templateFilename);
+$reflectionClass = new ReflectionClass(HttpStatus::class);
 
-$db = include $dbFilename;
+foreach ($reflectionClass->getConstants() as $statusCode) {
 
-foreach ($db as $STATUSCODE => $array) {
-
-    if (0 === strlen($array['exception'])) {
+    if (!is_int($statusCode)) {
         continue;
     }
 
-    $parts   = explode('\\', $array['exception']);
-    $NAME    = array_pop($parts);
-    $MESSAGE = sprintf('%d %s', $STATUSCODE, str_replace("'", "\'", $array['name']));
+    $entity = (new HttpStatus($statusCode))->get();
 
+    if (0 === strlen($entity->exception)) {
+        continue;
+    }
+
+    $parts = explode('\\', $entity->exception);
+
+    $NAME          = array_pop($parts);
+    $MESSAGE       = sprintf('%d %s', $statusCode, str_replace("'", "\'", $entity->name));
+    $STATUSCODE    = (string) $statusCode;
     $CUSTOMMESSAGE = 'Custom error message with a detailed description of the problem.';
 
     $buffer = $template;
@@ -31,5 +38,6 @@ foreach ($db as $STATUSCODE => $array) {
 
     $filename = sprintf('%s/%sTest.php', $pathOutput, $NAME);
     file_put_contents($filename, $buffer);
+
     dump($filename);
 }

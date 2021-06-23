@@ -5,6 +5,7 @@
     <description>PSR-2</description>
 
     <file>bin</file>
+    <file>demo</file>
     <file>data</file>
     <file>src</file>
     <file>test</file>
