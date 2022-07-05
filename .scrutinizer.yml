@@ -33,3 +33,16 @@ build:
                         coverage:
                             file: coverage80.xml
                             format: php-clover
+        php81:
+            environment:
+                php:
+                    version: 8.1
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage81.xml
+                        coverage:
+                            file: coverage81.xml
+                            format: php-clover
+
