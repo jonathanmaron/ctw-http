@@ -15,7 +15,7 @@
         </report>
     </coverage>
     <testsuites>
-        <testsuite name="CtwTest\Http">
+        <testsuite name="ctw/ctw-http">
             <directory>test</directory>
         </testsuite>
     </testsuites>
