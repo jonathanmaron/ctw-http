@@ -7,17 +7,27 @@ use Ctw\Http\HttpMethod;
 
 class HttpMethodTest extends AbstractCase
 {
-    public function testConstants(): void
+    public function provideConsts(): array
     {
-        self::assertSame('CONNECT', HttpMethod::METHOD_CONNECT);
-        self::assertSame('DELETE', HttpMethod::METHOD_DELETE);
-        self::assertSame('GET', HttpMethod::METHOD_GET);
-        self::assertSame('HEAD', HttpMethod::METHOD_HEAD);
-        self::assertSame('OPTIONS', HttpMethod::METHOD_OPTIONS);
-        self::assertSame('PATCH', HttpMethod::METHOD_PATCH);
-        self::assertSame('POST', HttpMethod::METHOD_POST);
-        self::assertSame('PURGE', HttpMethod::METHOD_PURGE);
-        self::assertSame('PUT', HttpMethod::METHOD_PUT);
-        self::assertSame('TRACE', HttpMethod::METHOD_TRACE);
+        return [
+            ['CONNECT', HttpMethod::METHOD_CONNECT],
+            ['DELETE', HttpMethod::METHOD_DELETE],
+            ['GET', HttpMethod::METHOD_GET],
+            ['HEAD', HttpMethod::METHOD_HEAD],
+            ['OPTIONS', HttpMethod::METHOD_OPTIONS],
+            ['PATCH', HttpMethod::METHOD_PATCH],
+            ['POST', HttpMethod::METHOD_POST],
+            ['PURGE', HttpMethod::METHOD_PURGE],
+            ['PUT', HttpMethod::METHOD_PUT],
+            ['TRACE', HttpMethod::METHOD_TRACE],
+        ];
+    }
+
+    /**
+     * @dataProvider provideConsts
+     */
+    public function testConsts(string $expected, string $actual): void
+    {
+        self::assertSame($expected, $actual);
     }
 }

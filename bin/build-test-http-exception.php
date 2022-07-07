@@ -12,6 +12,7 @@ $template         = (string) file_get_contents($templateFilename);
 $reflectionClass = new ReflectionClass(HttpStatus::class);
 
 foreach ($reflectionClass->getConstants() as $statusCode) {
+
     if (!is_int($statusCode)) {
         continue;
     }
