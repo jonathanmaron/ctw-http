@@ -7,7 +7,7 @@ use Ctw\Http\HttpMethod;
 
 class HttpMethodTest extends AbstractCase
 {
-    public function provideConsts(): array
+    static public function provideConsts(): array
     {
         return [
             ['CONNECT', HttpMethod::METHOD_CONNECT],

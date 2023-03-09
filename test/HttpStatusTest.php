@@ -9,7 +9,7 @@ use Ctw\Http\HttpStatus;
 
 class HttpStatusTest extends AbstractCase
 {
-    public function provideConsts(): array
+    static public function provideConsts(): array
     {
         return [
             [100, HttpStatus::STATUS_CONTINUE],
