@@ -33,4 +33,3 @@ build:
                         coverage:
                             file: coverage82.xml
                             format: php-clover
-
