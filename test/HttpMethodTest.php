@@ -4,10 +4,11 @@ declare(strict_types=1);
 namespace CtwTest\Http;
 
 use Ctw\Http\HttpMethod;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class HttpMethodTest extends AbstractCase
 {
-    static public function provideConsts(): array
+    public static function provideConsts(): array
     {
         return [
             ['CONNECT', HttpMethod::METHOD_CONNECT],
@@ -23,9 +24,7 @@ class HttpMethodTest extends AbstractCase
         ];
     }
 
-    /**
-     * @dataProvider provideConsts
-     */
+    #[DataProvider('provideConsts')]
     public function testConsts(string $expected, string $actual): void
     {
         self::assertSame($expected, $actual);

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 include __DIR__ . '/../vendor/autoload.php';
 
-use Ctw\Http\HttpStatus;
 use Ctw\Http\HttpException;
+use Ctw\Http\HttpStatus;
 
 // <editor-fold desc="Get HttpStatus Entity (full)">
 
@@ -36,9 +36,9 @@ dump($name);
 
 try {
     throw new HttpException\NotFoundException('Optional custom 404 Not Found');
-} catch (HttpException\HttpExceptionInterface $e) {
-    dump($e->getStatusCode());
-    dump($e->getMessage());
+} catch (HttpException\HttpExceptionInterface $httpException) {
+    dump($httpException->getStatusCode());
+    dump($httpException->getMessage());
 }
 
 // ^ 404

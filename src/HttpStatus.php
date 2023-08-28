@@ -9,6 +9,9 @@ use Fig\Http\Message\StatusCodeInterface;
 
 class HttpStatus implements StatusCodeInterface
 {
+    /**
+     * @var string
+     */
     private const FILENAME = __DIR__ . '/../data/http-status.php';
 
     private array $db;
@@ -64,7 +67,7 @@ class HttpStatus implements StatusCodeInterface
 
     private function validateStatusCode(int $statusCode): self
     {
-        if (!in_array($statusCode, array_keys($this->getDb()), true)) {
+        if (!array_key_exists($statusCode, $this->getDb())) {
             $format  = 'The status code %d is not supported';
             $message = sprintf($format, $statusCode);
             throw new InvalidArgumentException($message);

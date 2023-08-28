@@ -5,8 +5,6 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-// phpcs:disable
-
 class %%NAME%%Test extends AbstractCase
 {
     public function test%%NAME%%(): void
@@ -40,5 +38,3 @@ class %%NAME%%Test extends AbstractCase
         }
     }
 }
-
-// phpcs:disable

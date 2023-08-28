@@ -7,15 +7,15 @@ use Throwable;
 
 interface HttpExceptionInterface
 {
-    /**
-     * HttpExceptionInterface constructor.
-     *
-     * @param string         $message
-     * @param Throwable|null $previous
-     * @param array          $headers
-     * @param int            $code
-     */
+    
     public function __construct(string $message = '', Throwable $previous = null, array $headers = [], int $code = 0);
+
+    /**
+     * Return a string representation of the exception.
+     *
+     * @return string
+     */
+    public function __toString();
 
     /**
      * Return the exception message.
@@ -67,23 +67,12 @@ interface HttpExceptionInterface
     public function getTraceAsString();
 
     /**
-     * Return a string representation of the exception.
-     *
-     * @return string
-     */
-    public function __toString();
-
-    /**
      * Return the status code.
-     *
-     * @return int
      */
     public function getStatusCode(): int;
 
     /**
      * Return the response headers.
-     *
-     * @return array
      */
     public function getHeaders(): array;
 }

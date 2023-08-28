@@ -11,13 +11,13 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
 {
     protected int   $statusCode;
 
-    protected array $headers;
-
-    public function __construct(string $message = '', Throwable $previous = null, array $headers = [], int $code = 0)
-    {
-        $this->headers = $headers;
-
-        if (0 === strlen($message)) {
+    public function __construct(
+        string $message = '',
+        Throwable $previous = null,
+        protected array $headers = [],
+        int $code = 0
+    ) {
+        if ('' === $message) {
             $statusCode = $this->getStatusCode();
             $entity     = (new HttpStatus($statusCode))->get();
             $message    = sprintf('%d %s', $entity->statusCode, $entity->name);

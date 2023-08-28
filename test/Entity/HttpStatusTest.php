@@ -29,13 +29,7 @@ class HttpStatusTest extends AbstractCase
         }
         sort($actual);
 
-        $expected = [
-            'statusCode',
-            'name',
-            'phrase',
-            'exception',
-            'url',
-        ];
+        $expected = ['statusCode', 'name', 'phrase', 'exception', 'url'];
         sort($expected);
 
         self::assertEquals($expected, $actual);

@@ -6,10 +6,11 @@ namespace CtwTest\Http;
 use Ctw\Http\Exception\InvalidArgumentException;
 use Ctw\Http\HttpException;
 use Ctw\Http\HttpStatus;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class HttpStatusTest extends AbstractCase
 {
-    static public function provideConsts(): array
+    public static function provideConsts(): array
     {
         return [
             [100, HttpStatus::STATUS_CONTINUE],
@@ -78,9 +79,7 @@ class HttpStatusTest extends AbstractCase
         ];
     }
 
-    /**
-     * @dataProvider provideConsts
-     */
+    #[DataProvider('provideConsts')]
     public function testConsts(int $expected, int $actual): void
     {
         self::assertSame($expected, $actual);

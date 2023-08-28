@@ -5,8 +5,6 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-// phpcs:disable
-
 class PreconditionFailedExceptionTest extends AbstractCase
 {
     public function testPreconditionFailedException(): void
@@ -16,9 +14,9 @@ class PreconditionFailedExceptionTest extends AbstractCase
 
         try {
             throw new HttpException\PreconditionFailedException();
-        } catch (HttpException\HttpExceptionInterface $e) {
-            self::assertSame($statusCode, $e->getStatusCode());
-            self::assertSame($message, $e->getMessage());
+        } catch (HttpException\HttpExceptionInterface $httpException) {
+            self::assertSame($statusCode, $httpException->getStatusCode());
+            self::assertSame($message, $httpException->getMessage());
         }
     }
 
@@ -33,12 +31,10 @@ class PreconditionFailedExceptionTest extends AbstractCase
 
         try {
             throw new HttpException\PreconditionFailedException($message, null, $headers);
-        } catch (HttpException\HttpExceptionInterface $e) {
-            self::assertSame($statusCode, $e->getStatusCode());
-            self::assertSame($message, $e->getMessage());
-            self::assertSame($headers, $e->getHeaders());
+        } catch (HttpException\HttpExceptionInterface $httpException) {
+            self::assertSame($statusCode, $httpException->getStatusCode());
+            self::assertSame($message, $httpException->getMessage());
+            self::assertSame($headers, $httpException->getHeaders());
         }
     }
 }
-
-// phpcs:disable
