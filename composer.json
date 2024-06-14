@@ -1,4 +1,4 @@
-{  "minimum-stability": "dev", "prefer-stable": true,  
+{
     "name": "ctw/ctw-http",
     "description": "This package provides utility classes and constants to facilitate common operations of PSR-7 and a group of exceptions which represent HTTP status codes.",
     "license": "BSD-3-Clause",
@@ -17,6 +17,8 @@
         "squizlabs/php_codesniffer": "^3.6",
         "symfony/var-dumper": "^7.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Ctw\\Http\\": "src"
