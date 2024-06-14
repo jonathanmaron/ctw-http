@@ -1,4 +1,4 @@
-{
+{  "minimum-stability": "dev",  
     "name": "ctw/ctw-http",
     "description": "This package provides utility classes and constants to facilitate common operations of PSR-7 and a group of exceptions which represent HTTP status codes.",
     "license": "BSD-3-Clause",
