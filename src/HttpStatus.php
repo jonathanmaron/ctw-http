@@ -9,18 +9,19 @@ use Fig\Http\Message\StatusCodeInterface;
 
 class HttpStatus implements StatusCodeInterface
 {
-    /**
-     * @var string
-     */
-    private const FILENAME = __DIR__ . '/../data/http-status.php';
+    private const string FILENAME = __DIR__ . '/../data/http-status.php';
 
+    /**
+     * @var array<int, array{name: string, phrase: string, exception: string}>
+     */
     private array $db;
 
-    private int   $statusCode;
+    private int $statusCode;
 
     public function __construct(int $statusCode)
     {
-        $db = (array) include self::FILENAME;
+        /** @var array<int, array{name: string, phrase: string, exception: string}> $db */
+        $db = include self::FILENAME;
         $this->setDb($db);
         $this->validateStatusCode($statusCode);
         $this->setStatusCode($statusCode);
@@ -41,11 +42,17 @@ class HttpStatus implements StatusCodeInterface
         return $entity;
     }
 
+    /**
+     * @return array<int, array{name: string, phrase: string, exception: string}>
+     */
     private function getDb(): array
     {
         return $this->db;
     }
 
+    /**
+     * @param array<int, array{name: string, phrase: string, exception: string}> $db
+     */
     private function setDb(array $db): self
     {
         $this->db = $db;
