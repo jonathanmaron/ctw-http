@@ -5,7 +5,7 @@ namespace Ctw\Http\Entity;
 
 class HttpStatus
 {
-    public int    $statusCode;
+    public int $statusCode;
 
     public string $name;
 
