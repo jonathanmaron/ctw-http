@@ -19,6 +19,7 @@ final class HttpStatusTest extends AbstractCase
     {
         $entity = new Entity();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(Entity::class, $entity);
     }
 

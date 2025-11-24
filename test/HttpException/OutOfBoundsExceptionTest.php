@@ -14,7 +14,9 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     {
         $exception = new OutOfBoundsException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(OutOfBoundsException::class, $exception);
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(\OutOfBoundsException::class, $exception);
         self::assertSame('', $exception->getMessage());
         self::assertSame(0, $exception->getCode());

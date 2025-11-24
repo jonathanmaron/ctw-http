@@ -15,8 +15,11 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     {
         $exception = new InvalidArgumentException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(InvalidArgumentException::class, $exception);
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(ExceptionInterface::class, $exception);
         self::assertSame('', $exception->getMessage());
         self::assertSame(0, $exception->getCode());

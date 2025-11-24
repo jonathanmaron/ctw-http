@@ -289,6 +289,7 @@ final class HttpStatusTest extends AbstractCase
     {
         $httpStatus = new HttpStatus(HttpStatus::STATUS_OK);
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(StatusCodeInterface::class, $httpStatus);
     }
 
@@ -300,6 +301,7 @@ final class HttpStatusTest extends AbstractCase
         $httpStatus = new HttpStatus(HttpStatus::STATUS_NOT_FOUND);
         $entity     = $httpStatus->get();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(Entity::class, $entity);
         self::assertSame(404, $entity->statusCode);
         self::assertSame(HttpException\NotFoundException::class, $entity->exception);
@@ -317,6 +319,7 @@ final class HttpStatusTest extends AbstractCase
         $httpStatus = new HttpStatus(HttpStatus::STATUS_OK);
         $entity     = $httpStatus->get();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(Entity::class, $entity);
         self::assertSame(200, $entity->statusCode);
         self::assertSame('OK', $entity->name);
@@ -333,6 +336,7 @@ final class HttpStatusTest extends AbstractCase
         $httpStatus = new HttpStatus(HttpStatus::STATUS_INTERNAL_SERVER_ERROR);
         $entity     = $httpStatus->get();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(Entity::class, $entity);
         self::assertSame(500, $entity->statusCode);
         self::assertSame(HttpException\InternalServerErrorException::class, $entity->exception);

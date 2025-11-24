@@ -15,8 +15,11 @@ final class RuntimeExceptionTest extends AbstractCase
     {
         $exception = new RuntimeException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(RuntimeException::class, $exception);
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(\RuntimeException::class, $exception);
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(ExceptionInterface::class, $exception);
         self::assertSame('', $exception->getMessage());
         self::assertSame(0, $exception->getCode());

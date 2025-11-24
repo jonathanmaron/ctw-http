@@ -106,6 +106,7 @@ final class BadRequestExceptionTest extends AbstractCase
     {
         $exception = new HttpException\BadRequestException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(HttpException\HttpExceptionInterface::class, $exception);
     }
 
@@ -116,6 +117,7 @@ final class BadRequestExceptionTest extends AbstractCase
     {
         $exception = new HttpException\BadRequestException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(HttpException\AbstractClientErrorException::class, $exception);
     }
 
@@ -126,6 +128,7 @@ final class BadRequestExceptionTest extends AbstractCase
     {
         $exception = new HttpException\BadRequestException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(HttpException\AbstractException::class, $exception);
     }
 
@@ -136,6 +139,7 @@ final class BadRequestExceptionTest extends AbstractCase
     {
         $exception = new HttpException\BadRequestException();
 
+        // @phpstan-ignore-next-line
         self::assertInstanceOf(RuntimeException::class, $exception);
     }
 
