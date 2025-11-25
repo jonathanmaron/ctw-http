@@ -1,5 +1,6 @@
 # Package "ctw/ctw-http"
 
+[![Latest Stable Version](https://poser.pugx.org/ctw/ctw-http/v/stable)](https://packagist.org/packages/ctw/ctw-http)
 [![GitHub Actions](https://github.com/jonathanmaron/ctw-http/actions/workflows/tests.yml/badge.svg)](https://github.com/jonathanmaron/ctw-http/actions/workflows/tests.yml)
 [![Scrutinizer Build](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/build-status/master)
 [![Scrutinizer Quality](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/?branch=master)
