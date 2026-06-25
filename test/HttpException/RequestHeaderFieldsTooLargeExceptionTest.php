@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class RequestHeaderFieldsTooLargeExceptionTest extends AbstractCase
+final class RequestHeaderFieldsTooLargeExceptionTest extends AbstractCase
 {
-    public function testRequestHeaderFieldsTooLargeException(): void
+    /**
+     * Test that RequestHeaderFieldsTooLargeException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testRequestHeaderFieldsTooLargeExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 431;
         $message    = '431 Request Header Fields Too Large';
@@ -20,7 +24,11 @@ class RequestHeaderFieldsTooLargeExceptionTest extends AbstractCase
         }
     }
 
-    public function testRequestHeaderFieldsTooLargeExceptionConstruct(): void
+    /**
+     * Test that RequestHeaderFieldsTooLargeException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testRequestHeaderFieldsTooLargeExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 431;
         $message    = 'Custom error message with a detailed description of the problem.';

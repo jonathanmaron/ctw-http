@@ -9,7 +9,7 @@ use Ctw\Http\Exception\InvalidArgumentException;
 final class InvalidArgumentExceptionTest extends AbstractCase
 {
     /**
-     * Test that exception can be instantiated with default values
+     * Test that the exception reports an empty message and zero code when constructed with default values.
      */
     public function testInvalidArgumentExceptionInstantiation(): void
     {
@@ -26,7 +26,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message
+     * Test that the exception returns the supplied message and a zero code when constructed with a message only.
      */
     public function testInvalidArgumentExceptionWithMessage(): void
     {
@@ -38,7 +38,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message and code
+     * Test that the exception returns both the supplied message and code when constructed with a message and code.
      */
     public function testInvalidArgumentExceptionWithMessageAndCode(): void
     {
@@ -51,7 +51,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with previous exception
+     * Test that the exception chains the prior throwable when constructed with a previous exception.
      */
     public function testInvalidArgumentExceptionWithPrevious(): void
     {
@@ -67,7 +67,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be thrown and caught
+     * Test that the exception is raised with its message intact when thrown.
      */
     public function testInvalidArgumentExceptionThrow(): void
     {
@@ -80,7 +80,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be caught as InvalidArgumentException
+     * Test that the exception is catchable as the native InvalidArgumentException when thrown.
      */
     public function testInvalidArgumentExceptionCatchAsInvalidArgument(): void
     {
@@ -95,7 +95,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be caught as ExceptionInterface
+     * Test that the exception is catchable as the package ExceptionInterface when thrown.
      */
     public function testInvalidArgumentExceptionCatchAsExceptionInterface(): void
     {
@@ -110,7 +110,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has correct string representation
+     * Test that the string cast contains the class name and message when the exception is converted to a string.
      */
     public function testInvalidArgumentExceptionToString(): void
     {

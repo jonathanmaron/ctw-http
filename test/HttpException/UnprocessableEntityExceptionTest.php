@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class UnprocessableEntityExceptionTest extends AbstractCase
+final class UnprocessableEntityExceptionTest extends AbstractCase
 {
-    public function testUnprocessableEntityException(): void
+    /**
+     * Test that UnprocessableEntityException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testUnprocessableEntityExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 422;
         $message    = '422 Unprocessable Entity';
@@ -20,7 +24,11 @@ class UnprocessableEntityExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnprocessableEntityExceptionConstruct(): void
+    /**
+     * Test that UnprocessableEntityException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testUnprocessableEntityExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 422;
         $message    = 'Custom error message with a detailed description of the problem.';

@@ -10,7 +10,7 @@ use RuntimeException;
 final class BadRequestExceptionTest extends AbstractCase
 {
     /**
-     * Test that exception has correct status code
+     * Test that getStatusCode() returns 400 when a BadRequestException is constructed.
      */
     public function testBadRequestExceptionStatusCode(): void
     {
@@ -21,7 +21,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has default message when no message provided
+     * Test that the message defaults to "400 Bad Request" when no message is provided.
      */
     public function testBadRequestExceptionDefaultMessage(): void
     {
@@ -37,7 +37,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message
+     * Test that the custom message is retained alongside the 400 status code when a message is provided.
      */
     public function testBadRequestExceptionWithCustomMessage(): void
     {
@@ -53,7 +53,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message and headers
+     * Test that custom message and headers are retained alongside the status code when both are provided.
      */
     public function testBadRequestExceptionWithMessageAndHeaders(): void
     {
@@ -74,7 +74,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception returns empty array when no headers provided
+     * Test that getHeaders() returns an empty array when no headers are provided.
      */
     public function testBadRequestExceptionWithoutHeaders(): void
     {
@@ -84,7 +84,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with previous exception
+     * Test that the prior throwable is chained when a previous exception is supplied.
      */
     public function testBadRequestExceptionWithPreviousException(): void
     {
@@ -100,7 +100,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception implements HttpExceptionInterface
+     * Test that the exception is an instance of HttpExceptionInterface when constructed.
      */
     public function testBadRequestExceptionImplementsHttpExceptionInterface(): void
     {
@@ -111,7 +111,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception extends AbstractClientErrorException
+     * Test that the exception is an instance of AbstractClientErrorException when constructed.
      */
     public function testBadRequestExceptionExtendsAbstractClientErrorException(): void
     {
@@ -122,7 +122,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception extends AbstractException
+     * Test that the exception is an instance of AbstractException when constructed.
      */
     public function testBadRequestExceptionExtendsAbstractException(): void
     {
@@ -133,7 +133,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception extends RuntimeException
+     * Test that the exception is an instance of the native RuntimeException when constructed.
      */
     public function testBadRequestExceptionExtendsRuntimeException(): void
     {
@@ -144,7 +144,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be caught as HttpExceptionInterface
+     * Test that the exception is catchable as HttpExceptionInterface when thrown.
      */
     public function testBadRequestExceptionCatchAsHttpExceptionInterface(): void
     {
@@ -159,7 +159,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be caught as RuntimeException
+     * Test that the exception is catchable as the native RuntimeException when thrown.
      */
     public function testBadRequestExceptionCatchAsRuntimeException(): void
     {
@@ -174,7 +174,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has correct code when provided
+     * Test that getCode() returns the supplied code when a non-zero code is provided.
      */
     public function testBadRequestExceptionWithCode(): void
     {
@@ -186,7 +186,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has default code of zero
+     * Test that getCode() returns zero when no code is provided.
      */
     public function testBadRequestExceptionDefaultCode(): void
     {
@@ -196,7 +196,7 @@ final class BadRequestExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has correct string representation
+     * Test that the string cast contains the class name and message when the exception is converted to a string.
      */
     public function testBadRequestExceptionToString(): void
     {

@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class GoneExceptionTest extends AbstractCase
+final class GoneExceptionTest extends AbstractCase
 {
-    public function testGoneException(): void
+    /**
+     * Test that GoneException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testGoneExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 410;
         $message    = '410 Gone';
@@ -20,7 +24,11 @@ class GoneExceptionTest extends AbstractCase
         }
     }
 
-    public function testGoneExceptionConstruct(): void
+    /**
+     * Test that GoneException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testGoneExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 410;
         $message    = 'Custom error message with a detailed description of the problem.';

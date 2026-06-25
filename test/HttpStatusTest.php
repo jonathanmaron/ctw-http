@@ -274,16 +274,17 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that status code constants match expected values
+     * Test that each HttpStatus constant exposes the expected integer status
+     * code when its value is compared against the canonical code.
      */
     #[DataProvider('provideConsts')]
-    public function testConsts(int $expected, int $actual): void
+    public function testConstantExposesExpectedStatusCodeValue(int $expected, int $actual): void
     {
         self::assertSame($expected, $actual);
     }
 
     /**
-     * Test that HttpStatus implements StatusCodeInterface
+     * Test that HttpStatus is an instance of StatusCodeInterface when instantiated.
      */
     public function testImplementsStatusCodeInterface(): void
     {
@@ -294,7 +295,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that get method returns correct entity for 404 Not Found
+     * Test that get() returns the fully populated entity when the status code is 404 Not Found.
      */
     public function testGetReturnsCorrectEntityForNotFound(): void
     {
@@ -312,7 +313,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that get method returns correct entity for 200 OK
+     * Test that get() returns the entity with an empty exception when the status code is 200 OK.
      */
     public function testGetReturnsCorrectEntityForOk(): void
     {
@@ -329,7 +330,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that get method returns correct entity for 500 Internal Server Error
+     * Test that get() returns the entity mapped to the server-error exception when the status code is 500.
      */
     public function testGetReturnsCorrectEntityForInternalServerError(): void
     {
@@ -402,7 +403,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that get method returns correct URL for various status codes
+     * Test that get() builds the httpstatuses.com URL for the code when given a valid status code.
      */
     #[DataProvider('validStatusCodesProvider')]
     public function testGetReturnsCorrectUrlForStatusCode(int $statusCode): void
@@ -415,7 +416,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that invalid status code throws exception during construction
+     * Test that the constructor throws an InvalidArgumentException when given an unsupported status code.
      */
     public function testInvalidStatusCodeThrowsExceptionDuringConstruction(): void
     {
@@ -459,7 +460,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that various invalid status codes throw exceptions
+     * Test that the constructor throws an InvalidArgumentException when given a boundary or unassigned status code.
      */
     #[DataProvider('invalidStatusCodesProvider')]
     public function testVariousInvalidStatusCodesThrowException(int $statusCode): void
@@ -471,7 +472,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that get method can be called multiple times
+     * Test that get() returns equivalent entity data when invoked repeatedly on the same instance.
      */
     public function testGetMethodCanBeCalledMultipleTimes(): void
     {
@@ -488,7 +489,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that entity returned by get method contains all required properties
+     * Test that the entity returned by get() exposes every documented property when retrieved.
      */
     public function testGetReturnsEntityWithAllProperties(): void
     {

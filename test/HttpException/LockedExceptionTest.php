@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class LockedExceptionTest extends AbstractCase
+final class LockedExceptionTest extends AbstractCase
 {
-    public function testLockedException(): void
+    /**
+     * Test that LockedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testLockedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 423;
         $message    = '423 Locked';
@@ -20,7 +24,11 @@ class LockedExceptionTest extends AbstractCase
         }
     }
 
-    public function testLockedExceptionConstruct(): void
+    /**
+     * Test that LockedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testLockedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 423;
         $message    = 'Custom error message with a detailed description of the problem.';

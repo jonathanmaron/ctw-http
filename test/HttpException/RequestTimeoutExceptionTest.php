@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class RequestTimeoutExceptionTest extends AbstractCase
+final class RequestTimeoutExceptionTest extends AbstractCase
 {
-    public function testRequestTimeoutException(): void
+    /**
+     * Test that RequestTimeoutException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testRequestTimeoutExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 408;
         $message    = '408 Request Timeout';
@@ -20,7 +24,11 @@ class RequestTimeoutExceptionTest extends AbstractCase
         }
     }
 
-    public function testRequestTimeoutExceptionConstruct(): void
+    /**
+     * Test that RequestTimeoutException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testRequestTimeoutExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 408;
         $message    = 'Custom error message with a detailed description of the problem.';

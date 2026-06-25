@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class NotFoundExceptionTest extends AbstractCase
+final class NotFoundExceptionTest extends AbstractCase
 {
-    public function testNotFoundException(): void
+    /**
+     * Test that NotFoundException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testNotFoundExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 404;
         $message    = '404 Not Found';
@@ -20,7 +24,11 @@ class NotFoundExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotFoundExceptionConstruct(): void
+    /**
+     * Test that NotFoundException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testNotFoundExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 404;
         $message    = 'Custom error message with a detailed description of the problem.';

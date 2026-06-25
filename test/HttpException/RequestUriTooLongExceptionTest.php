@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class RequestUriTooLongExceptionTest extends AbstractCase
+final class RequestUriTooLongExceptionTest extends AbstractCase
 {
-    public function testRequestUriTooLongException(): void
+    /**
+     * Test that RequestUriTooLongException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testRequestUriTooLongExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 414;
         $message    = '414 URI Too Long';
@@ -20,7 +24,11 @@ class RequestUriTooLongExceptionTest extends AbstractCase
         }
     }
 
-    public function testRequestUriTooLongExceptionConstruct(): void
+    /**
+     * Test that RequestUriTooLongException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testRequestUriTooLongExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 414;
         $message    = 'Custom error message with a detailed description of the problem.';

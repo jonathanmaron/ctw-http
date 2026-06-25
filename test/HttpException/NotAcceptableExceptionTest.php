@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class NotAcceptableExceptionTest extends AbstractCase
+final class NotAcceptableExceptionTest extends AbstractCase
 {
-    public function testNotAcceptableException(): void
+    /**
+     * Test that NotAcceptableException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testNotAcceptableExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 406;
         $message    = '406 Not Acceptable';
@@ -20,7 +24,11 @@ class NotAcceptableExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotAcceptableExceptionConstruct(): void
+    /**
+     * Test that NotAcceptableException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testNotAcceptableExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 406;
         $message    = 'Custom error message with a detailed description of the problem.';

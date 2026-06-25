@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class VariantAlsoNegotiatesExceptionTest extends AbstractCase
+final class VariantAlsoNegotiatesExceptionTest extends AbstractCase
 {
-    public function testVariantAlsoNegotiatesException(): void
+    /**
+     * Test that VariantAlsoNegotiatesException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testVariantAlsoNegotiatesExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 506;
         $message    = '506 Variant Also Negotiates';
@@ -20,7 +24,11 @@ class VariantAlsoNegotiatesExceptionTest extends AbstractCase
         }
     }
 
-    public function testVariantAlsoNegotiatesExceptionConstruct(): void
+    /**
+     * Test that VariantAlsoNegotiatesException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testVariantAlsoNegotiatesExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 506;
         $message    = 'Custom error message with a detailed description of the problem.';

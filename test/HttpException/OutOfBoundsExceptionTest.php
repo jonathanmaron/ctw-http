@@ -8,7 +8,7 @@ use Ctw\Http\HttpException\OutOfBoundsException;
 final class OutOfBoundsExceptionTest extends AbstractCase
 {
     /**
-     * Test that exception can be instantiated with default values
+     * Test that the exception reports an empty message and zero code when constructed with default values.
      */
     public function testOutOfBoundsExceptionInstantiation(): void
     {
@@ -23,7 +23,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message
+     * Test that the exception returns the supplied message and a zero code when constructed with a message only.
      */
     public function testOutOfBoundsExceptionWithMessage(): void
     {
@@ -35,7 +35,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with custom message and code
+     * Test that the exception returns both the supplied message and code when constructed with a message and code.
      */
     public function testOutOfBoundsExceptionWithMessageAndCode(): void
     {
@@ -48,7 +48,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be instantiated with previous exception
+     * Test that the exception chains the prior throwable when constructed with a previous exception.
      */
     public function testOutOfBoundsExceptionWithPrevious(): void
     {
@@ -64,7 +64,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be thrown and caught
+     * Test that the exception is raised with its message intact when thrown.
      */
     public function testOutOfBoundsExceptionThrow(): void
     {
@@ -77,7 +77,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception can be caught as OutOfBoundsException
+     * Test that the exception is catchable as the native OutOfBoundsException when thrown.
      */
     public function testOutOfBoundsExceptionCatchAsOutOfBounds(): void
     {
@@ -92,7 +92,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
     }
 
     /**
-     * Test that exception has correct string representation
+     * Test that the string cast contains the class name and message when the exception is converted to a string.
      */
     public function testOutOfBoundsExceptionToString(): void
     {

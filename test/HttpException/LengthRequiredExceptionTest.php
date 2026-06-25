@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class LengthRequiredExceptionTest extends AbstractCase
+final class LengthRequiredExceptionTest extends AbstractCase
 {
-    public function testLengthRequiredException(): void
+    /**
+     * Test that LengthRequiredException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testLengthRequiredExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 411;
         $message    = '411 Length Required';
@@ -20,7 +24,11 @@ class LengthRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testLengthRequiredExceptionConstruct(): void
+    /**
+     * Test that LengthRequiredException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testLengthRequiredExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 411;
         $message    = 'Custom error message with a detailed description of the problem.';

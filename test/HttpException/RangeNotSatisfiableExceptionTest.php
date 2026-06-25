@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class RangeNotSatisfiableExceptionTest extends AbstractCase
+final class RangeNotSatisfiableExceptionTest extends AbstractCase
 {
-    public function testRangeNotSatisfiableException(): void
+    /**
+     * Test that RangeNotSatisfiableException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testRangeNotSatisfiableExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 416;
         $message    = '416 Range Not Satisfiable';
@@ -20,7 +24,11 @@ class RangeNotSatisfiableExceptionTest extends AbstractCase
         }
     }
 
-    public function testRangeNotSatisfiableExceptionConstruct(): void
+    /**
+     * Test that RangeNotSatisfiableException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testRangeNotSatisfiableExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 416;
         $message    = 'Custom error message with a detailed description of the problem.';

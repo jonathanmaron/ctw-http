@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class LoopDetectedExceptionTest extends AbstractCase
+final class LoopDetectedExceptionTest extends AbstractCase
 {
-    public function testLoopDetectedException(): void
+    /**
+     * Test that LoopDetectedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testLoopDetectedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 508;
         $message    = '508 Loop Detected';
@@ -20,7 +24,11 @@ class LoopDetectedExceptionTest extends AbstractCase
         }
     }
 
-    public function testLoopDetectedExceptionConstruct(): void
+    /**
+     * Test that LoopDetectedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testLoopDetectedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 508;
         $message    = 'Custom error message with a detailed description of the problem.';

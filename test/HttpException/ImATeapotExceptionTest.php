@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ImATeapotExceptionTest extends AbstractCase
+final class ImATeapotExceptionTest extends AbstractCase
 {
-    public function testImATeapotException(): void
+    /**
+     * Test that ImATeapotException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testImATeapotExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 418;
         $message    = "418 I'm a teapot";
@@ -20,7 +24,11 @@ class ImATeapotExceptionTest extends AbstractCase
         }
     }
 
-    public function testImATeapotExceptionConstruct(): void
+    /**
+     * Test that ImATeapotException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testImATeapotExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 418;
         $message    = 'Custom error message with a detailed description of the problem.';

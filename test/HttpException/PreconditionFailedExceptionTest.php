@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class PreconditionFailedExceptionTest extends AbstractCase
+final class PreconditionFailedExceptionTest extends AbstractCase
 {
-    public function testPreconditionFailedException(): void
+    /**
+     * Test that PreconditionFailedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testPreconditionFailedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 412;
         $message    = '412 Precondition Failed';
@@ -20,7 +24,11 @@ class PreconditionFailedExceptionTest extends AbstractCase
         }
     }
 
-    public function testPreconditionFailedExceptionConstruct(): void
+    /**
+     * Test that PreconditionFailedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testPreconditionFailedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 412;
         $message    = 'Custom error message with a detailed description of the problem.';

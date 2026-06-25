@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class TooEarlyExceptionTest extends AbstractCase
+final class TooEarlyExceptionTest extends AbstractCase
 {
-    public function testTooEarlyException(): void
+    /**
+     * Test that TooEarlyException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testTooEarlyExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 425;
         $message    = '425 Too Early';
@@ -20,7 +24,11 @@ class TooEarlyExceptionTest extends AbstractCase
         }
     }
 
-    public function testTooEarlyExceptionConstruct(): void
+    /**
+     * Test that TooEarlyException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testTooEarlyExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 425;
         $message    = 'Custom error message with a detailed description of the problem.';

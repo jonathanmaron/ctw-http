@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class VersionNotSupportedExceptionTest extends AbstractCase
+final class VersionNotSupportedExceptionTest extends AbstractCase
 {
-    public function testVersionNotSupportedException(): void
+    /**
+     * Test that VersionNotSupportedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testVersionNotSupportedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 505;
         $message    = '505 HTTP Version Not Supported';
@@ -20,7 +24,11 @@ class VersionNotSupportedExceptionTest extends AbstractCase
         }
     }
 
-    public function testVersionNotSupportedExceptionConstruct(): void
+    /**
+     * Test that VersionNotSupportedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testVersionNotSupportedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 505;
         $message    = 'Custom error message with a detailed description of the problem.';

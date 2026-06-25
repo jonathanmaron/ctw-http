@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class MisdirectedRequestExceptionTest extends AbstractCase
+final class MisdirectedRequestExceptionTest extends AbstractCase
 {
-    public function testMisdirectedRequestException(): void
+    /**
+     * Test that MisdirectedRequestException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testMisdirectedRequestExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 421;
         $message    = '421 Misdirected Request';
@@ -20,7 +24,11 @@ class MisdirectedRequestExceptionTest extends AbstractCase
         }
     }
 
-    public function testMisdirectedRequestExceptionConstruct(): void
+    /**
+     * Test that MisdirectedRequestException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testMisdirectedRequestExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 421;
         $message    = 'Custom error message with a detailed description of the problem.';

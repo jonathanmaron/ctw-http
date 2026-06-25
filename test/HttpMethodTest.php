@@ -6,8 +6,11 @@ namespace CtwTest\Http;
 use Ctw\Http\HttpMethod;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-class HttpMethodTest extends AbstractCase
+final class HttpMethodTest extends AbstractCase
 {
+    /**
+     * @return array<int, array{0: string, 1: string}>
+     */
     public static function provideConsts(): array
     {
         return [
@@ -24,8 +27,12 @@ class HttpMethodTest extends AbstractCase
         ];
     }
 
+    /**
+     * Test that each HttpMethod constant exposes the expected uppercase HTTP
+     * method verb when its value is compared against the canonical string.
+     */
     #[DataProvider('provideConsts')]
-    public function testConsts(string $expected, string $actual): void
+    public function testConstantExposesExpectedHttpMethodValue(string $expected, string $actual): void
     {
         self::assertSame($expected, $actual);
     }

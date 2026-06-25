@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ForbiddenExceptionTest extends AbstractCase
+final class ForbiddenExceptionTest extends AbstractCase
 {
-    public function testForbiddenException(): void
+    /**
+     * Test that ForbiddenException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testForbiddenExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 403;
         $message    = '403 Forbidden';
@@ -20,7 +24,11 @@ class ForbiddenExceptionTest extends AbstractCase
         }
     }
 
-    public function testForbiddenExceptionConstruct(): void
+    /**
+     * Test that ForbiddenException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testForbiddenExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 403;
         $message    = 'Custom error message with a detailed description of the problem.';

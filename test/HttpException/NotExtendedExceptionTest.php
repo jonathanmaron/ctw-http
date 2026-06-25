@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class NotExtendedExceptionTest extends AbstractCase
+final class NotExtendedExceptionTest extends AbstractCase
 {
-    public function testNotExtendedException(): void
+    /**
+     * Test that NotExtendedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testNotExtendedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 510;
         $message    = '510 Not Extended';
@@ -20,7 +24,11 @@ class NotExtendedExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotExtendedExceptionConstruct(): void
+    /**
+     * Test that NotExtendedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testNotExtendedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 510;
         $message    = 'Custom error message with a detailed description of the problem.';

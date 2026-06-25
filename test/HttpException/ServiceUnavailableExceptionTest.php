@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ServiceUnavailableExceptionTest extends AbstractCase
+final class ServiceUnavailableExceptionTest extends AbstractCase
 {
-    public function testServiceUnavailableException(): void
+    /**
+     * Test that ServiceUnavailableException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testServiceUnavailableExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 503;
         $message    = '503 Service Unavailable';
@@ -20,7 +24,11 @@ class ServiceUnavailableExceptionTest extends AbstractCase
         }
     }
 
-    public function testServiceUnavailableExceptionConstruct(): void
+    /**
+     * Test that ServiceUnavailableException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testServiceUnavailableExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 503;
         $message    = 'Custom error message with a detailed description of the problem.';

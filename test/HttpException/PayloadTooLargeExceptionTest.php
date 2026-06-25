@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class PayloadTooLargeExceptionTest extends AbstractCase
+final class PayloadTooLargeExceptionTest extends AbstractCase
 {
-    public function testPayloadTooLargeException(): void
+    /**
+     * Test that PayloadTooLargeException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testPayloadTooLargeExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 413;
         $message    = '413 Payload Too Large';
@@ -20,7 +24,11 @@ class PayloadTooLargeExceptionTest extends AbstractCase
         }
     }
 
-    public function testPayloadTooLargeExceptionConstruct(): void
+    /**
+     * Test that PayloadTooLargeException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testPayloadTooLargeExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 413;
         $message    = 'Custom error message with a detailed description of the problem.';

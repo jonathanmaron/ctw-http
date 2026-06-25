@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ProxyAuthenticationRequiredExceptionTest extends AbstractCase
+final class ProxyAuthenticationRequiredExceptionTest extends AbstractCase
 {
-    public function testProxyAuthenticationRequiredException(): void
+    /**
+     * Test that ProxyAuthenticationRequiredException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testProxyAuthenticationRequiredExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 407;
         $message    = '407 Proxy Authentication Required';
@@ -20,7 +24,11 @@ class ProxyAuthenticationRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testProxyAuthenticationRequiredExceptionConstruct(): void
+    /**
+     * Test that ProxyAuthenticationRequiredException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testProxyAuthenticationRequiredExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 407;
         $message    = 'Custom error message with a detailed description of the problem.';

@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class UnsupportedMediaTypeExceptionTest extends AbstractCase
+final class UnsupportedMediaTypeExceptionTest extends AbstractCase
 {
-    public function testUnsupportedMediaTypeException(): void
+    /**
+     * Test that UnsupportedMediaTypeException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testUnsupportedMediaTypeExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 415;
         $message    = '415 Unsupported Media Type';
@@ -20,7 +24,11 @@ class UnsupportedMediaTypeExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnsupportedMediaTypeExceptionConstruct(): void
+    /**
+     * Test that UnsupportedMediaTypeException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testUnsupportedMediaTypeExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 415;
         $message    = 'Custom error message with a detailed description of the problem.';

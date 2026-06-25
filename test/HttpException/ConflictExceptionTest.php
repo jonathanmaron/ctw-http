@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ConflictExceptionTest extends AbstractCase
+final class ConflictExceptionTest extends AbstractCase
 {
-    public function testConflictException(): void
+    /**
+     * Test that ConflictException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testConflictExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 409;
         $message    = '409 Conflict';
@@ -20,7 +24,11 @@ class ConflictExceptionTest extends AbstractCase
         }
     }
 
-    public function testConflictExceptionConstruct(): void
+    /**
+     * Test that ConflictException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testConflictExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 409;
         $message    = 'Custom error message with a detailed description of the problem.';

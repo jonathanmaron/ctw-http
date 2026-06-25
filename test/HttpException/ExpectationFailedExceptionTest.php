@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class ExpectationFailedExceptionTest extends AbstractCase
+final class ExpectationFailedExceptionTest extends AbstractCase
 {
-    public function testExpectationFailedException(): void
+    /**
+     * Test that ExpectationFailedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testExpectationFailedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 417;
         $message    = '417 Expectation Failed';
@@ -20,7 +24,11 @@ class ExpectationFailedExceptionTest extends AbstractCase
         }
     }
 
-    public function testExpectationFailedExceptionConstruct(): void
+    /**
+     * Test that ExpectationFailedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testExpectationFailedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 417;
         $message    = 'Custom error message with a detailed description of the problem.';

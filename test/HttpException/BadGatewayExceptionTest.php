@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class BadGatewayExceptionTest extends AbstractCase
+final class BadGatewayExceptionTest extends AbstractCase
 {
-    public function testBadGatewayException(): void
+    /**
+     * Test that BadGatewayException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testBadGatewayExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 502;
         $message    = '502 Bad Gateway';
@@ -20,7 +24,11 @@ class BadGatewayExceptionTest extends AbstractCase
         }
     }
 
-    public function testBadGatewayExceptionConstruct(): void
+    /**
+     * Test that BadGatewayException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testBadGatewayExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 502;
         $message    = 'Custom error message with a detailed description of the problem.';

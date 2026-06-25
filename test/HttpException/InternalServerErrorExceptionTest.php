@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class InternalServerErrorExceptionTest extends AbstractCase
+final class InternalServerErrorExceptionTest extends AbstractCase
 {
-    public function testInternalServerErrorException(): void
+    /**
+     * Test that InternalServerErrorException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testInternalServerErrorExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 500;
         $message    = '500 Internal Server Error';
@@ -20,7 +24,11 @@ class InternalServerErrorExceptionTest extends AbstractCase
         }
     }
 
-    public function testInternalServerErrorExceptionConstruct(): void
+    /**
+     * Test that InternalServerErrorException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testInternalServerErrorExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 500;
         $message    = 'Custom error message with a detailed description of the problem.';

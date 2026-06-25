@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class NotImplementedExceptionTest extends AbstractCase
+final class NotImplementedExceptionTest extends AbstractCase
 {
-    public function testNotImplementedException(): void
+    /**
+     * Test that NotImplementedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testNotImplementedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 501;
         $message    = '501 Not Implemented';
@@ -20,7 +24,11 @@ class NotImplementedExceptionTest extends AbstractCase
         }
     }
 
-    public function testNotImplementedExceptionConstruct(): void
+    /**
+     * Test that NotImplementedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testNotImplementedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 501;
         $message    = 'Custom error message with a detailed description of the problem.';

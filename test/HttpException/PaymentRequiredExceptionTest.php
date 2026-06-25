@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class PaymentRequiredExceptionTest extends AbstractCase
+final class PaymentRequiredExceptionTest extends AbstractCase
 {
-    public function testPaymentRequiredException(): void
+    /**
+     * Test that PaymentRequiredException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testPaymentRequiredExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 402;
         $message    = '402 Payment Required';
@@ -20,7 +24,11 @@ class PaymentRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testPaymentRequiredExceptionConstruct(): void
+    /**
+     * Test that PaymentRequiredException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testPaymentRequiredExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 402;
         $message    = 'Custom error message with a detailed description of the problem.';

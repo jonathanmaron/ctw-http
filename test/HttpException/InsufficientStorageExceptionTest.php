@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class InsufficientStorageExceptionTest extends AbstractCase
+final class InsufficientStorageExceptionTest extends AbstractCase
 {
-    public function testInsufficientStorageException(): void
+    /**
+     * Test that InsufficientStorageException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testInsufficientStorageExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 507;
         $message    = '507 Insufficient Storage';
@@ -20,7 +24,11 @@ class InsufficientStorageExceptionTest extends AbstractCase
         }
     }
 
-    public function testInsufficientStorageExceptionConstruct(): void
+    /**
+     * Test that InsufficientStorageException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testInsufficientStorageExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 507;
         $message    = 'Custom error message with a detailed description of the problem.';

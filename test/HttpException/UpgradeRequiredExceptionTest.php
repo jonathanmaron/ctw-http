@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class UpgradeRequiredExceptionTest extends AbstractCase
+final class UpgradeRequiredExceptionTest extends AbstractCase
 {
-    public function testUpgradeRequiredException(): void
+    /**
+     * Test that UpgradeRequiredException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testUpgradeRequiredExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 426;
         $message    = '426 Upgrade Required';
@@ -20,7 +24,11 @@ class UpgradeRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testUpgradeRequiredExceptionConstruct(): void
+    /**
+     * Test that UpgradeRequiredException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testUpgradeRequiredExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 426;
         $message    = 'Custom error message with a detailed description of the problem.';

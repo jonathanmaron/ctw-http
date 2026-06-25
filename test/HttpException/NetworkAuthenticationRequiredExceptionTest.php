@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class NetworkAuthenticationRequiredExceptionTest extends AbstractCase
+final class NetworkAuthenticationRequiredExceptionTest extends AbstractCase
 {
-    public function testNetworkAuthenticationRequiredException(): void
+    /**
+     * Test that NetworkAuthenticationRequiredException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testNetworkAuthenticationRequiredExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 511;
         $message    = '511 Network Authentication Required';
@@ -20,7 +24,11 @@ class NetworkAuthenticationRequiredExceptionTest extends AbstractCase
         }
     }
 
-    public function testNetworkAuthenticationRequiredExceptionConstruct(): void
+    /**
+     * Test that NetworkAuthenticationRequiredException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testNetworkAuthenticationRequiredExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 511;
         $message    = 'Custom error message with a detailed description of the problem.';

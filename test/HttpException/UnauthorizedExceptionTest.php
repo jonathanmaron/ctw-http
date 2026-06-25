@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class UnauthorizedExceptionTest extends AbstractCase
+final class UnauthorizedExceptionTest extends AbstractCase
 {
-    public function testUnauthorizedException(): void
+    /**
+     * Test that UnauthorizedException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testUnauthorizedExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 401;
         $message    = '401 Unauthorized';
@@ -20,7 +24,11 @@ class UnauthorizedExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnauthorizedExceptionConstruct(): void
+    /**
+     * Test that UnauthorizedException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testUnauthorizedExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 401;
         $message    = 'Custom error message with a detailed description of the problem.';

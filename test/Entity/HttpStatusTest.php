@@ -13,7 +13,7 @@ use ReflectionProperty;
 final class HttpStatusTest extends AbstractCase
 {
     /**
-     * Test that entity can be instantiated
+     * Test that the entity is an instance of the entity class when constructed with no arguments.
      */
     public function testEntityInstantiation(): void
     {
@@ -24,7 +24,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that statusCode property can be set and retrieved
+     * Test that the statusCode property returns the assigned value when set on the entity.
      */
     public function testEntityStatusCodeProperty(): void
     {
@@ -35,7 +35,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that name property can be set and retrieved
+     * Test that the name property returns the assigned value when set on the entity.
      */
     public function testEntityNameProperty(): void
     {
@@ -46,7 +46,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that phrase property can be set and retrieved
+     * Test that the phrase property returns the assigned value when set on the entity.
      */
     public function testEntityPhraseProperty(): void
     {
@@ -57,7 +57,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that exception property can be set and retrieved
+     * Test that the exception property returns the assigned value when set on the entity.
      */
     public function testEntityExceptionProperty(): void
     {
@@ -68,7 +68,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that url property can be set and retrieved
+     * Test that the url property returns the assigned value when set on the entity.
      */
     public function testEntityUrlProperty(): void
     {
@@ -79,7 +79,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that all properties can be set at once
+     * Test that every property returns its assigned value when all properties are set together.
      */
     public function testEntityAllProperties(): void
     {
@@ -99,7 +99,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that entity has correct public properties
+     * Test that the entity declares exactly the expected public property names when reflected.
      */
     public function testPublicProperties(): void
     {
@@ -119,7 +119,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that entity has exactly 5 public properties
+     * Test that the entity exposes exactly five public properties when reflected.
      */
     public function testPublicPropertiesCount(): void
     {
@@ -157,7 +157,7 @@ final class HttpStatusTest extends AbstractCase
     }
 
     /**
-     * Test that entity can store various status codes
+     * Test that the entity stores and returns each field unchanged when populated from various status codes.
      */
     #[DataProvider('statusCodesProvider')]
     public function testEntityWithVariousStatusCodes(

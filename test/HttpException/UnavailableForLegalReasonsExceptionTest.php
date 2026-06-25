@@ -5,9 +5,13 @@ namespace CtwTest\Http\HttpException;
 
 use Ctw\Http\HttpException;
 
-class UnavailableForLegalReasonsExceptionTest extends AbstractCase
+final class UnavailableForLegalReasonsExceptionTest extends AbstractCase
 {
-    public function testUnavailableForLegalReasonsException(): void
+    /**
+     * Test that UnavailableForLegalReasonsException, when constructed without arguments, reports its
+     * status code and a default message derived from the status reason phrase.
+     */
+    public function testUnavailableForLegalReasonsExceptionDefaultsMessageToStatusCodeAndPhraseWhenConstructedWithoutArguments(): void
     {
         $statusCode = 451;
         $message    = '451 Unavailable For Legal Reasons';
@@ -20,7 +24,11 @@ class UnavailableForLegalReasonsExceptionTest extends AbstractCase
         }
     }
 
-    public function testUnavailableForLegalReasonsExceptionConstruct(): void
+    /**
+     * Test that UnavailableForLegalReasonsException retains the supplied custom message and headers
+     * while still reporting its fixed status code when constructed with arguments.
+     */
+    public function testUnavailableForLegalReasonsExceptionRetainsCustomMessageAndHeadersWhenConstructedWithArguments(): void
     {
         $statusCode = 451;
         $message    = 'Custom error message with a detailed description of the problem.';
