@@ -5,8 +5,25 @@
 - **Date:** 2026-06-25
 
 This is a **TODO list** of the changes required for this package to run cleanly
-under PHP 8.5.7. Nothing here has been fixed yet — the fixes happen in a second
-step. Boxes are intentionally left unchecked.
+under PHP 8.5.7. Boxes are intentionally left unchecked.
+
+---
+
+## ✅ Applied on `php85`
+
+> Supersedes the §2 TODO below.
+
+- [x] **`src/HttpException/AbstractException.php:16`** — `Throwable $previous = null`
+  → **`?Throwable $previous = null`**.
+- [x] **`src/HttpException/HttpExceptionInterface.php:10`** — same explicit
+  nullable type on the interface signature.
+
+`phpunit --no-coverage` now reports **232 tests, 437 assertions, 0 deprecations**.
+This also clears the two `ctw/ctw-http`-originated deprecations seen in
+`ctw-middleware-httpexception` (which now pins `ctw/ctw-http: dev-php85`).
+
+Residual: only the shared PHPStan `missingType.*` unmatched-ignore (§3, owned by
+`ctw/ctw-qa`).
 
 Detection commands used:
 

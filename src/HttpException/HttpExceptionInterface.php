@@ -7,7 +7,7 @@ use Throwable;
 
 interface HttpExceptionInterface
 {
-    public function __construct(string $message = '', Throwable $previous = null, array $headers = [], int $code = 0);
+    public function __construct(string $message = '', ?Throwable $previous = null, array $headers = [], int $code = 0);
 
     /**
      * Return a string representation of the exception.

@@ -13,7 +13,7 @@ abstract class AbstractException extends RuntimeException implements HttpExcepti
 
     public function __construct(
         string $message = '',
-        Throwable $previous = null,
+        ?Throwable $previous = null,
         protected array $headers = [],
         int $code = 0
     ) {
