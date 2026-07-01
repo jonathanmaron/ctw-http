@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class InsufficientStorageException extends AbstractServerErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_INSUFFICIENT_STORAGE;
 }

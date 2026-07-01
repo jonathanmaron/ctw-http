@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class UnprocessableEntityException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_UNPROCESSABLE_ENTITY;
 }

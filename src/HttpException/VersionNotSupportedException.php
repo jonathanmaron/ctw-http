@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class VersionNotSupportedException extends AbstractServerErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_VERSION_NOT_SUPPORTED;
 }

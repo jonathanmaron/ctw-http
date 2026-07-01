@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class LoopDetectedException extends AbstractServerErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_LOOP_DETECTED;
 }

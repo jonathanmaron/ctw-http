@@ -24,7 +24,7 @@ dump($httpStatus->get());
 
 // <editor-fold desc="Get HttpStatus Entity (just name)">
 
-$name = (new HttpStatus(HttpStatus::STATUS_GONE))->get()->name;
+$name = new HttpStatus(HttpStatus::STATUS_GONE)->get()->name;
 
 dump($name);
 

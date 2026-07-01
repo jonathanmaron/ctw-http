@@ -16,7 +16,8 @@ foreach ($reflectionClass->getConstants() as $statusCode) {
         continue;
     }
 
-    $entity = (new HttpStatus($statusCode))->get();
+    $entity = new HttpStatus($statusCode)
+        ->get();
 
     if ('' === $entity->exception) {
         continue;

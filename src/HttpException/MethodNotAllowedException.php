@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class MethodNotAllowedException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_METHOD_NOT_ALLOWED;
 }

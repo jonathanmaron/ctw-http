@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class UnauthorizedException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_UNAUTHORIZED;
 }

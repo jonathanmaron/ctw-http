@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class NotImplementedException extends AbstractServerErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_NOT_IMPLEMENTED;
 }

@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class NotExtendedException extends AbstractServerErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_NOT_EXTENDED;
 }

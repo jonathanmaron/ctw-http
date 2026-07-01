@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class GoneException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_GONE;
 }

@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class NotAcceptableException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_NOT_ACCEPTABLE;
 }

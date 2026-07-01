@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class BadRequestException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_BAD_REQUEST;
 }

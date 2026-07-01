@@ -7,5 +7,6 @@ use Ctw\Http\HttpStatus;
 
 class ImATeapotException extends AbstractClientErrorException
 {
+    #[\Override]
     protected int $statusCode = HttpStatus::STATUS_IM_A_TEAPOT;
 }
