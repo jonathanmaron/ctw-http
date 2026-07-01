@@ -1,10 +1,7 @@
 # Package "ctw/ctw-http"
 
 [![Latest Stable Version](https://poser.pugx.org/ctw/ctw-http/v/stable)](https://packagist.org/packages/ctw/ctw-http)
-[![GitHub Actions](https://github.com/jonathanmaron/ctw-http/actions/workflows/tests.yml/badge.svg)](https://github.com/jonathanmaron/ctw-http/actions/workflows/tests.yml)
-[![Scrutinizer Build](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/build-status/master)
-[![Scrutinizer Quality](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jonathanmaron/ctw-http/?branch=master)
+[![GitHub Actions](https://github.com/jonathanmaron/ctw-http/actions/workflows/ci.yml/badge.svg)](https://github.com/jonathanmaron/ctw-http/actions/workflows/ci.yml)
 
 Utility classes, constants, and typed exceptions for PSR-7 HTTP operations, providing a complete HTTP status code registry with metadata and throwable exceptions for all 4xx/5xx status codes.
 
