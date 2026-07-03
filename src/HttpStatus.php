@@ -14,72 +14,50 @@ class HttpStatus implements StatusCodeInterface
     /**
      * @var array<int, array{name: string, phrase: string, exception: string}>
      */
-    private array $db;
+    private readonly array $db;
 
-    private int $statusCode;
+    /**
+     * Backed property whose PHP 8.4 `set` hook validates the assigned code
+     * against the status-code database, throwing InvalidArgumentException for
+     * an unsupported code. The hook replaces the former validateStatusCode()
+     * and setStatusCode() helpers; assignment must therefore happen only after
+     * {@see self::$db} is populated.
+     */
+    private int $statusCode {
+        set(int $statusCode) {
+            if (!array_key_exists($statusCode, $this->db)) {
+                $format  = 'The status code %d is not supported';
+                $message = sprintf($format, $statusCode);
+                throw new InvalidArgumentException($message);
+            }
+
+            $this->statusCode = $statusCode;
+        }
+    }
 
     public function __construct(int $statusCode)
     {
         /** @var array<int, array{name: string, phrase: string, exception: string}> $db */
         $db = include self::FILENAME;
-        $this->setDb($db);
-        $this->validateStatusCode($statusCode);
-        $this->setStatusCode($statusCode);
+
+        $this->db         = $db;
+
+        $this->statusCode = $statusCode;
     }
 
+    #[\NoDiscard("the populated status entity is this method's only result")]
     public function get(): Entity
     {
-        $db         = $this->getDb();
-        $statusCode = $this->getStatusCode();
+        $db         = $this->db;
+        $statusCode = $this->statusCode;
 
         $entity             = new Entity();
         $entity->statusCode = $statusCode;
-        $entity->name       = $db[$entity->statusCode]['name'];
-        $entity->phrase     = $db[$entity->statusCode]['phrase'];
-        $entity->exception  = $db[$entity->statusCode]['exception'];
-        $entity->url        = sprintf('https://httpstatuses.com/%s', $entity->statusCode);
+        $entity->name       = $db[$statusCode]['name'];
+        $entity->phrase     = $db[$statusCode]['phrase'];
+        $entity->exception  = $db[$statusCode]['exception'];
+        $entity->url        = sprintf('https://httpstatuses.com/%s', $statusCode);
 
         return $entity;
-    }
-
-    /**
-     * @return array<int, array{name: string, phrase: string, exception: string}>
-     */
-    private function getDb(): array
-    {
-        return $this->db;
-    }
-
-    /**
-     * @param array<int, array{name: string, phrase: string, exception: string}> $db
-     */
-    private function setDb(array $db): self
-    {
-        $this->db = $db;
-
-        return $this;
-    }
-
-    private function getStatusCode(): int
-    {
-        return $this->statusCode;
-    }
-
-    private function setStatusCode(int $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
-    private function validateStatusCode(int $statusCode): self
-    {
-        if (!array_key_exists($statusCode, $this->getDb())) {
-            $format  = 'The status code %d is not supported';
-            $message = sprintf($format, $statusCode);
-            throw new InvalidArgumentException($message);
-        }
-
-        return $this;
     }
 }
