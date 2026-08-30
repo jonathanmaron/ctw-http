@@ -421,7 +421,7 @@ final class HttpStatusTest extends AbstractCase
     public function testInvalidStatusCodeThrowsExceptionDuringConstruction(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The status code 999 is not supported');
+        $this->expectExceptionMessageIsOrContains('The status code 999 is not supported');
 
         new HttpStatus(999);
     }
@@ -466,7 +466,7 @@ final class HttpStatusTest extends AbstractCase
     public function testVariousInvalidStatusCodesThrowException(int $statusCode): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage(sprintf('The status code %d is not supported', $statusCode));
+        $this->expectExceptionMessageIsOrContains(sprintf('The status code %d is not supported', $statusCode));
 
         new HttpStatus($statusCode);
     }

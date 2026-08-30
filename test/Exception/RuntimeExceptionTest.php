@@ -74,7 +74,7 @@ final class RuntimeExceptionTest extends AbstractCase
         $message = 'Runtime error occurred';
 
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage($message);
+        $this->expectExceptionMessageIsOrContains($message);
 
         throw new RuntimeException($message);
     }

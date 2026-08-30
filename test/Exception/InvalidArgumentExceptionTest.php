@@ -74,7 +74,7 @@ final class InvalidArgumentExceptionTest extends AbstractCase
         $message = 'Invalid argument provided';
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage($message);
+        $this->expectExceptionMessageIsOrContains($message);
 
         throw new InvalidArgumentException($message);
     }

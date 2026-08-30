@@ -71,7 +71,7 @@ final class OutOfBoundsExceptionTest extends AbstractCase
         $message = 'Index out of bounds';
 
         $this->expectException(OutOfBoundsException::class);
-        $this->expectExceptionMessage($message);
+        $this->expectExceptionMessageIsOrContains($message);
 
         throw new OutOfBoundsException($message);
     }
